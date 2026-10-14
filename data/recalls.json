@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-14T12:54:08Z",
+ "generated": "2026-10-14T18:53:20Z",
  "sources": [
   {
    "name": "FDA Recalls, Market Withdrawals, & Safety Alerts",
@@ -12,6 +12,96 @@
  ],
  "note": "Collected from FDA.gov every few hours. Not every recall is posted on FDA.gov (USDA FSIS handles most meat, poultry and egg recalls). Always confirm at FDA.gov.",
  "recalls": [
+  {
+   "id": "par-health-issues-voluntary-nationwide-recall-argatroban-injection-due-presence-particulate-matter",
+   "url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/par-health-issues-voluntary-nationwide-recall-argatroban-injection-due-presence-particulate-matter",
+   "fda_publish_date": "2026-10-14",
+   "brands": "Par Health and Endo USA",
+   "product": "Argatroban Injection 250 mg/2.5 mL (100 mg/mL)",
+   "types": [
+    "Drugs"
+   ],
+   "reason": "Presence of particulate matter, identified as cellulose, polystyrene, polyethylene terephthalate, stopper material, and possibly stainless steel",
+   "company": "Par Health USA, LLC",
+   "terminated": false,
+   "source": "FDA Recalls, Market Withdrawals, & Safety Alerts",
+   "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts",
+   "first_seen": "2026-10-14T18:52:34Z",
+   "retrieved": "2026-10-14T18:52:39Z",
+   "status": "confirmed",
+   "photos": [
+    {
+     "src": "https://www.fda.gov/files/image_1_256.png",
+     "thumb": "https://www.fda.gov/files/styles/recall_image_small/public/image_1_256.png?itok=sUbCT2p_",
+     "alt": "Argatroban Injection 250 mg/2.5 mL (100 mg/mL) vial label"
+    },
+    {
+     "src": "https://www.fda.gov/files/image_2_199.png",
+     "thumb": "https://www.fda.gov/files/styles/recall_image_small/public/image_2_199.png?itok=hBfi1FRU",
+     "alt": "Argatroban Injection 250 mg/2.5 mL (100 mg/mL) vial label 2"
+    }
+   ],
+   "company_announcement_date": "2026-10-13"
+  },
+  {
+   "id": "pan-pepin-inc-emite-alerta-por-alergenos-en-el-producto-parabien-al-grano-debido-la-presencia-de",
+   "url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/pan-pepin-inc-emite-alerta-por-alergenos-en-el-producto-parabien-al-grano-debido-la-presencia-de",
+   "fda_publish_date": "2026-10-14",
+   "brands": "Para Bien",
+   "product": "Para Bien Al Grano",
+   "types": [
+    "Food & Beverages",
+    "Allergens"
+   ],
+   "reason": "Undeclared sesame",
+   "company": "Pan Pepin Inc.",
+   "terminated": false,
+   "source": "FDA Recalls, Market Withdrawals, & Safety Alerts",
+   "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts",
+   "first_seen": "2026-10-14T18:52:34Z",
+   "retrieved": "2026-10-14T18:52:41Z",
+   "status": "confirmed",
+   "photos": [
+    {
+     "src": "https://www.fda.gov/files/image_1_257.png",
+     "thumb": "https://www.fda.gov/files/styles/recall_image_small/public/image_1_257.png?itok=oNZUK3O8",
+     "alt": "Image of Primary Label, Para Bien Al Grano"
+    }
+   ],
+   "company_announcement_date": "2026-10-13"
+  },
+  {
+   "id": "pan-pepin-inc-issues-allergy-alert-para-bien-al-grano-due-undeclared-sesame",
+   "url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/pan-pepin-inc-issues-allergy-alert-para-bien-al-grano-due-undeclared-sesame",
+   "fda_publish_date": "2026-10-14",
+   "brands": "Para Bien",
+   "product": "Para Bien Al Grano, 24oz box",
+   "types": [
+    "Food & Beverages",
+    "Allergens"
+   ],
+   "reason": "Undeclared sesame",
+   "company": "Pan Pepin Inc.",
+   "terminated": false,
+   "source": "FDA Recalls, Market Withdrawals, & Safety Alerts",
+   "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts",
+   "first_seen": "2026-10-14T18:52:34Z",
+   "retrieved": "2026-10-14T18:52:44Z",
+   "status": "confirmed",
+   "photos": [
+    {
+     "src": "https://www.fda.gov/files/image_1_258.png",
+     "thumb": "https://www.fda.gov/files/styles/recall_image_small/public/image_1_258.png?itok=wgTabSdh",
+     "alt": "Image of Primary Label, Para Bien Al Grano"
+    },
+    {
+     "src": "https://www.fda.gov/files/image_2_200.png",
+     "thumb": "https://www.fda.gov/files/styles/recall_image_small/public/image_2_200.png?itok=7-dPmRdL",
+     "alt": "Image of Back label, Para Bien Al Grano"
+    }
+   ],
+   "company_announcement_date": "2026-10-13"
+  },
   {
    "id": "krasnyi-oktyabr-inc-recalls-starfish-seafood-trio-because-possible-health-risk",
    "url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/krasnyi-oktyabr-inc-recalls-starfish-seafood-trio-because-possible-health-risk",
@@ -96,7 +186,7 @@
    "source": "FDA Recalls, Market Withdrawals, & Safety Alerts",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts",
    "first_seen": "2026-10-09T18:33:28Z",
-   "retrieved": "2026-10-13T18:39:59Z",
+   "retrieved": "2026-10-14T18:52:46Z",
    "status": "confirmed",
    "photos": [
     {
@@ -193,7 +283,7 @@
    "source": "FDA Recalls, Market Withdrawals, & Safety Alerts",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts",
    "first_seen": "2026-10-07T18:35:20Z",
-   "retrieved": "2026-10-13T18:40:01Z",
+   "retrieved": "2026-10-14T18:52:48Z",
    "status": "confirmed",
    "photos": [
     {
@@ -229,7 +319,7 @@
    "source": "FDA Recalls, Market Withdrawals, & Safety Alerts",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts",
    "first_seen": "2026-10-07T18:35:20Z",
-   "retrieved": "2026-10-13T18:40:03Z",
+   "retrieved": "2026-10-14T18:52:50Z",
    "status": "confirmed",
    "photos": [
     {
@@ -11649,7 +11739,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-10-14T12:53:39Z",
+   "retrieved": "2026-10-14T18:52:54Z",
    "status": "confirmed"
   },
   {
@@ -11662,7 +11752,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-10-14T12:53:41Z",
+   "retrieved": "2026-10-14T18:52:57Z",
    "status": "confirmed"
   },
   {
@@ -11675,7 +11765,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-10-14T12:53:43Z",
+   "retrieved": "2026-10-14T18:52:59Z",
    "status": "confirmed"
   },
   {
@@ -11688,7 +11778,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-10-14T12:53:45Z",
+   "retrieved": "2026-10-14T18:53:01Z",
    "status": "confirmed"
   },
   {
@@ -11701,7 +11791,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-10-14T12:53:48Z",
+   "retrieved": "2026-10-14T18:53:03Z",
    "status": "confirmed"
   },
   {
@@ -11714,7 +11804,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-10-14T12:53:50Z",
+   "retrieved": "2026-10-14T18:53:05Z",
    "status": "confirmed"
   },
   {
@@ -11727,7 +11817,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-10-14T12:53:52Z",
+   "retrieved": "2026-10-14T18:53:07Z",
    "status": "confirmed"
   },
   {
@@ -11740,7 +11830,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-10-14T12:53:55Z",
+   "retrieved": "2026-10-14T18:53:09Z",
    "status": "confirmed"
   },
   {
@@ -11753,7 +11843,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-10-14T12:53:58Z",
+   "retrieved": "2026-10-14T18:53:12Z",
    "status": "confirmed"
   },
   {
@@ -11766,7 +11856,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-10-14T12:54:01Z",
+   "retrieved": "2026-10-14T18:53:14Z",
    "status": "confirmed"
   },
   {
@@ -11779,7 +11869,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-10-14T12:54:03Z",
+   "retrieved": "2026-10-14T18:53:16Z",
    "status": "confirmed"
   },
   {
@@ -11792,7 +11882,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-10-14T12:54:05Z",
+   "retrieved": "2026-10-14T18:53:18Z",
    "status": "confirmed"
   },
   {
@@ -11805,7 +11895,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-10-14T12:54:08Z",
+   "retrieved": "2026-10-14T18:53:20Z",
    "status": "confirmed"
   }
  ]
