@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-16T18:49:52Z",
+ "generated": "2026-10-17T00:55:04Z",
  "sources": [
   {
    "name": "FDA Recalls, Market Withdrawals, & Safety Alerts",
@@ -12,6 +12,38 @@
  ],
  "note": "Collected from FDA.gov every few hours. Not every recall is posted on FDA.gov (USDA FSIS handles most meat, poultry and egg recalls). Always confirm at FDA.gov.",
  "recalls": [
+  {
+   "id": "family-farmstead-dairy-announces-recall-raw-mild-cheddar-cheese-due-potential-e-coli-o26h11-and",
+   "url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/family-farmstead-dairy-announces-recall-raw-mild-cheddar-cheese-due-potential-e-coli-o26h11-and",
+   "fda_publish_date": "2026-10-15",
+   "brands": "Family Farmstead",
+   "product": "Raw Mild Cheddar Cheese",
+   "types": [
+    "Food & Beverages",
+    "Foodborne Illness"
+   ],
+   "reason": "Potential to be contaminated with Shiga toxin-producing Escherichia coli (E. Coli O26:H11 and O45:H2)",
+   "company": "Family Farmstead Dairy, LLC",
+   "terminated": false,
+   "source": "FDA Recalls, Market Withdrawals, & Safety Alerts",
+   "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts",
+   "first_seen": "2026-10-17T00:54:11Z",
+   "retrieved": "2026-10-17T00:54:18Z",
+   "status": "confirmed",
+   "photos": [
+    {
+     "src": "https://www.fda.gov/files/labels_-_family_farmstead_dairy_-_raw_milk_chedddar-2.png",
+     "thumb": "https://www.fda.gov/files/styles/recall_image_small/public/labels_-_family_farmstead_dairy_-_raw_milk_chedddar-2.png?itok=Ydr93nt-",
+     "alt": "Front package label, Family Farmstead Dairy Raw Mild Cheddar Cheese"
+    },
+    {
+     "src": "https://www.fda.gov/files/labels_-_family_farmstead_dairy_-_raw_milk_chedddar-1.png",
+     "thumb": "https://www.fda.gov/files/styles/recall_image_small/public/labels_-_family_farmstead_dairy_-_raw_milk_chedddar-1.png?itok=_Ctm5jaP",
+     "alt": "Back package label, Family Farmstead Dairy Raw Mild Cheddar Cheese"
+    }
+   ],
+   "company_announcement_date": "2026-10-15"
+  },
   {
    "id": "family-farmstead-dairy-announces-recall-raw-mild-cheddar-cheese-due-potential-e-coli-o157h7",
    "url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/family-farmstead-dairy-announces-recall-raw-mild-cheddar-cheese-due-potential-e-coli-o157h7",
@@ -28,7 +60,7 @@
    "source": "FDA Recalls, Market Withdrawals, & Safety Alerts",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts",
    "first_seen": "2026-10-16T00:52:24Z",
-   "retrieved": "2026-10-16T00:52:30Z",
+   "retrieved": "2026-10-17T00:54:16Z",
    "status": "confirmed",
    "photos": [
     {
@@ -42,7 +74,8 @@
      "alt": "Back package label, Family Farmstead Dairy Raw Mild Cheddar Cheese"
     }
    ],
-   "company_announcement_date": "2026-10-15"
+   "company_announcement_date": "2026-10-15",
+   "notice_changed": "2026-10-17T00:54:16Z"
   },
   {
    "id": "par-health-issues-voluntary-nationwide-recall-argatroban-injection-due-presence-particulate-matter",
@@ -150,21 +183,22 @@
    "source": "FDA Recalls, Market Withdrawals, & Safety Alerts",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts",
    "first_seen": "2026-10-16T00:52:24Z",
-   "retrieved": "2026-10-16T00:52:37Z",
+   "retrieved": "2026-10-17T00:54:21Z",
    "status": "confirmed",
    "photos": [
     {
-     "src": "https://www.fda.gov/files/image_1_297.jpg",
-     "thumb": "https://www.fda.gov/files/styles/recall_image_small/public/image_1_297.jpg?itok=ngIytDAV",
+     "src": "https://www.fda.gov/files/sal1.jpg",
+     "thumb": "https://www.fda.gov/files/styles/recall_image_small/public/sal1.jpg?itok=DUDDEc4z",
      "alt": "Photo of front label panel of Starfish Seafood Cold Smoked Norwegian Salmon Sliced , 8 oz."
     },
     {
-     "src": "https://www.fda.gov/files/image_2_232.jpg",
-     "thumb": "https://www.fda.gov/files/styles/recall_image_small/public/image_2_232.jpg?itok=pFOegwTL",
+     "src": "https://www.fda.gov/files/sal2.jpg",
+     "thumb": "https://www.fda.gov/files/styles/recall_image_small/public/sal2.jpg?itok=wfHvVSwQ",
      "alt": "Photo of back label panel of Starfish Seafood Cold Smoked Norwegian Salmon Sliced , 8 oz."
     }
    ],
-   "company_announcement_date": "2026-10-09"
+   "company_announcement_date": "2026-10-09",
+   "notice_changed": "2026-10-17T00:54:21Z"
   },
   {
    "id": "krasnyi-oktyabr-inc-recalls-starfish-seafood-trio-because-possible-health-risk",
@@ -182,22 +216,22 @@
    "source": "FDA Recalls, Market Withdrawals, & Safety Alerts",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts",
    "first_seen": "2026-10-10T00:41:33Z",
-   "retrieved": "2026-10-16T00:52:32Z",
+   "retrieved": "2026-10-17T00:54:23Z",
    "status": "confirmed",
    "photos": [
     {
-     "src": "https://www.fda.gov/files/image_1_297.jpg",
-     "thumb": "https://www.fda.gov/files/styles/recall_image_small/public/image_1_297.jpg?itok=ngIytDAV",
-     "alt": "Photo of front label panel of Starfish Seafood Cold Smoked Norwegian Salmon Sliced , 8 oz."
+     "src": "https://www.fda.gov/files/image_1_296.jpg",
+     "thumb": "https://www.fda.gov/files/styles/recall_image_small/public/image_1_296.jpg?itok=KmVzi4QH",
+     "alt": "Photograph of front label panel of Starfish Seafood Cold Smoked Seafood Trio Salmon Halibut Trout Sliced Fillet, 8 oz."
     },
     {
-     "src": "https://www.fda.gov/files/image_2_232.jpg",
-     "thumb": "https://www.fda.gov/files/styles/recall_image_small/public/image_2_232.jpg?itok=pFOegwTL",
-     "alt": "Photo of back label panel of Starfish Seafood Cold Smoked Norwegian Salmon Sliced , 8 oz."
+     "src": "https://www.fda.gov/files/rev_image_2_6.png",
+     "thumb": "https://www.fda.gov/files/styles/recall_image_small/public/rev_image_2_6.png?itok=ovoYkPjc",
+     "alt": "Photograph of back label panel of Starfish Seafood Cold Smoked Seafood Trio Salmon Halibut Trout Sliced Fillet, 8 oz."
     }
    ],
    "company_announcement_date": "2026-10-09",
-   "notice_changed": "2026-10-16T00:52:32Z"
+   "notice_changed": "2026-10-17T00:54:23Z"
   },
   {
    "id": "oliva-llc-issues-allergy-alert-undeclared-sesame-baba-ghanouj-spicy-baba-ghanouj-and-hummus",
@@ -215,7 +249,7 @@
    "source": "FDA Recalls, Market Withdrawals, & Safety Alerts",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts",
    "first_seen": "2026-10-10T00:41:33Z",
-   "retrieved": "2026-10-16T00:52:34Z",
+   "retrieved": "2026-10-17T00:54:25Z",
    "status": "confirmed",
    "photos": [
     {
@@ -283,7 +317,7 @@
    "source": "FDA Recalls, Market Withdrawals, & Safety Alerts",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts",
    "first_seen": "2026-10-09T00:43:30Z",
-   "retrieved": "2026-10-16T00:52:39Z",
+   "retrieved": "2026-10-17T00:54:27Z",
    "status": "confirmed",
    "photos": [
     {
@@ -311,7 +345,7 @@
    "source": "FDA Recalls, Market Withdrawals, & Safety Alerts",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts",
    "first_seen": "2026-10-08T00:40:39Z",
-   "retrieved": "2026-10-16T00:52:41Z",
+   "retrieved": "2026-10-17T00:54:29Z",
    "status": "confirmed",
    "photos": [
     {
@@ -416,7 +450,7 @@
    "source": "FDA Recalls, Market Withdrawals, & Safety Alerts",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts",
    "first_seen": "2026-10-07T00:41:23Z",
-   "retrieved": "2026-10-16T00:52:43Z",
+   "retrieved": "2026-10-17T00:54:31Z",
    "status": "confirmed",
    "photos": [],
    "company_announcement_date": "2026-10-05"
@@ -11783,7 +11817,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-10-16T18:49:27Z",
+   "retrieved": "2026-10-17T00:54:36Z",
    "status": "confirmed"
   },
   {
@@ -11796,7 +11830,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-10-16T18:49:29Z",
+   "retrieved": "2026-10-17T00:54:38Z",
    "status": "confirmed"
   },
   {
@@ -11809,7 +11843,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-10-16T18:49:32Z",
+   "retrieved": "2026-10-17T00:54:40Z",
    "status": "confirmed"
   },
   {
@@ -11822,7 +11856,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-10-16T18:49:34Z",
+   "retrieved": "2026-10-17T00:54:42Z",
    "status": "confirmed"
   },
   {
@@ -11835,7 +11869,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-10-16T18:49:36Z",
+   "retrieved": "2026-10-17T00:54:45Z",
    "status": "confirmed"
   },
   {
@@ -11848,7 +11882,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-10-16T18:49:38Z",
+   "retrieved": "2026-10-17T00:54:47Z",
    "status": "confirmed"
   },
   {
@@ -11861,7 +11895,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-10-16T18:49:40Z",
+   "retrieved": "2026-10-17T00:54:50Z",
    "status": "confirmed"
   },
   {
@@ -11874,7 +11908,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-10-16T18:49:42Z",
+   "retrieved": "2026-10-17T00:54:52Z",
    "status": "confirmed"
   },
   {
@@ -11887,7 +11921,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-10-16T18:49:44Z",
+   "retrieved": "2026-10-17T00:54:55Z",
    "status": "confirmed"
   },
   {
@@ -11900,7 +11934,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-10-16T18:49:46Z",
+   "retrieved": "2026-10-17T00:54:57Z",
    "status": "confirmed"
   },
   {
@@ -11913,7 +11947,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-10-16T18:49:48Z",
+   "retrieved": "2026-10-17T00:54:59Z",
    "status": "confirmed"
   },
   {
@@ -11926,7 +11960,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-10-16T18:49:50Z",
+   "retrieved": "2026-10-17T00:55:02Z",
    "status": "confirmed"
   },
   {
@@ -11939,7 +11973,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-10-16T18:49:52Z",
+   "retrieved": "2026-10-17T00:55:04Z",
    "status": "confirmed"
   }
  ]
