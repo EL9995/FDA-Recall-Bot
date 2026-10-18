@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-17T18:42:37Z",
+ "generated": "2026-10-18T00:55:24Z",
  "sources": [
   {
    "name": "FDA Recalls, Market Withdrawals, & Safety Alerts",
@@ -12,6 +12,38 @@
  ],
  "note": "Collected from FDA.gov every few hours. Not every recall is posted on FDA.gov (USDA FSIS handles most meat, poultry and egg recalls). Always confirm at FDA.gov.",
  "recalls": [
+  {
+   "id": "lidl-us-recalls-gelatelli-coffee-vanilla-gelato-due-possible-health-risk",
+   "url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/lidl-us-recalls-gelatelli-coffee-vanilla-gelato-due-possible-health-risk",
+   "fda_publish_date": "2026-10-17",
+   "brands": "Gelatelli",
+   "product": "Coffee & Vanilla Gelato with Coffee Sauce & Cookie Pieces",
+   "types": [
+    "Food & Beverages",
+    "Foodborne Illness"
+   ],
+   "reason": "Potential contamination with Listeria monocytogenes",
+   "company": "Lidl US",
+   "terminated": false,
+   "source": "FDA Recalls, Market Withdrawals, & Safety Alerts",
+   "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts",
+   "first_seen": "2026-10-18T00:54:31Z",
+   "retrieved": "2026-10-18T00:54:35Z",
+   "status": "confirmed",
+   "photos": [
+    {
+     "src": "https://www.fda.gov/files/galfront_0.png",
+     "thumb": "https://www.fda.gov/files/styles/recall_image_small/public/galfront_0.png?itok=UTp1NZ9I",
+     "alt": "Gelatelli, Coffee & Vanilla Gelato, Front of Package"
+    },
+    {
+     "src": "https://www.fda.gov/files/galback_0.png",
+     "thumb": "https://www.fda.gov/files/styles/recall_image_small/public/galback_0.png?itok=lALUorpL",
+     "alt": "Gelatelli, Coffee & Vanilla Gelato, Bottom of container where lot information can be found"
+    }
+   ],
+   "company_announcement_date": "2026-10-16"
+  },
   {
    "id": "family-farmstead-dairy-announces-recall-raw-mild-cheddar-cheese-due-potential-e-coli-o26h11-and",
    "url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/family-farmstead-dairy-announces-recall-raw-mild-cheddar-cheese-due-potential-e-coli-o26h11-and",
@@ -28,7 +60,7 @@
    "source": "FDA Recalls, Market Withdrawals, & Safety Alerts",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts",
    "first_seen": "2026-10-17T00:54:11Z",
-   "retrieved": "2026-10-17T00:54:18Z",
+   "retrieved": "2026-10-18T00:54:37Z",
    "status": "confirmed",
    "photos": [
     {
@@ -60,7 +92,7 @@
    "source": "FDA Recalls, Market Withdrawals, & Safety Alerts",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts",
    "first_seen": "2026-10-16T00:52:24Z",
-   "retrieved": "2026-10-17T00:54:16Z",
+   "retrieved": "2026-10-18T00:54:39Z",
    "status": "confirmed",
    "photos": [
     {
@@ -183,7 +215,7 @@
    "source": "FDA Recalls, Market Withdrawals, & Safety Alerts",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts",
    "first_seen": "2026-10-16T00:52:24Z",
-   "retrieved": "2026-10-17T00:54:21Z",
+   "retrieved": "2026-10-18T00:54:41Z",
    "status": "confirmed",
    "photos": [
     {
@@ -216,7 +248,7 @@
    "source": "FDA Recalls, Market Withdrawals, & Safety Alerts",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts",
    "first_seen": "2026-10-10T00:41:33Z",
-   "retrieved": "2026-10-17T00:54:23Z",
+   "retrieved": "2026-10-18T00:54:43Z",
    "status": "confirmed",
    "photos": [
     {
@@ -249,7 +281,7 @@
    "source": "FDA Recalls, Market Withdrawals, & Safety Alerts",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts",
    "first_seen": "2026-10-10T00:41:33Z",
-   "retrieved": "2026-10-17T00:54:25Z",
+   "retrieved": "2026-10-18T00:54:45Z",
    "status": "confirmed",
    "photos": [
     {
@@ -317,7 +349,7 @@
    "source": "FDA Recalls, Market Withdrawals, & Safety Alerts",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts",
    "first_seen": "2026-10-09T00:43:30Z",
-   "retrieved": "2026-10-17T00:54:27Z",
+   "retrieved": "2026-10-18T00:54:48Z",
    "status": "confirmed",
    "photos": [
     {
@@ -345,7 +377,7 @@
    "source": "FDA Recalls, Market Withdrawals, & Safety Alerts",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts",
    "first_seen": "2026-10-08T00:40:39Z",
-   "retrieved": "2026-10-17T00:54:29Z",
+   "retrieved": "2026-10-18T00:54:50Z",
    "status": "confirmed",
    "photos": [
     {
@@ -450,7 +482,7 @@
    "source": "FDA Recalls, Market Withdrawals, & Safety Alerts",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts",
    "first_seen": "2026-10-07T00:41:23Z",
-   "retrieved": "2026-10-17T00:54:31Z",
+   "retrieved": "2026-10-18T00:54:52Z",
    "status": "confirmed",
    "photos": [],
    "company_announcement_date": "2026-10-05"
@@ -11635,175 +11667,6 @@
     }
    ],
    "company_announcement_date": "2025-10-25"
-  },
-  {
-   "id": "haitai-inc-recalls-haetae-ht-brand-cinnamon-powder-8-oz-possible-risk",
-   "url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/haitai-inc-recalls-haetae-ht-brand-cinnamon-powder-8-oz-possible-risk",
-   "fda_publish_date": "2025-10-17",
-   "brands": "Haetae",
-   "product": "Ground cinnamon",
-   "types": [
-    "Food & Beverages"
-   ],
-   "reason": "Potential Metal Contaminant - Lead",
-   "company": "Haitai, Inc",
-   "terminated": false,
-   "source": "FDA Recalls, Market Withdrawals, & Safety Alerts",
-   "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts",
-   "first_seen": "2026-10-06T06:01:01Z",
-   "retrieved": "2026-10-06T06:41:30Z",
-   "status": "confirmed",
-   "photos": [
-    {
-     "src": "https://www.fda.gov/files/cinnamon_powder.jpg",
-     "thumb": "https://www.fda.gov/files/styles/recall_image_small/public/cinnamon_powder.jpg?itok=a-s0yVcr",
-     "alt": "Cinnamon powder"
-    }
-   ],
-   "company_announcement_date": "2025-10-17"
-  },
-  {
-   "id": "nats-nuts-issues-allergy-alert-potential-undeclared-cashews-nats-nuts-brand-cinnamon-whiskey-pecans",
-   "url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/nats-nuts-issues-allergy-alert-potential-undeclared-cashews-nats-nuts-brand-cinnamon-whiskey-pecans",
-   "fda_publish_date": "2025-10-17",
-   "brands": "Nat’s Nuts",
-   "product": "Cinnamon Whiskey Pecans",
-   "types": [
-    "Food & Beverages"
-   ],
-   "reason": "Undeclared cashews",
-   "company": "Nat’s Nuts",
-   "terminated": false,
-   "source": "FDA Recalls, Market Withdrawals, & Safety Alerts",
-   "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts",
-   "first_seen": "2026-10-06T06:01:01Z",
-   "retrieved": "2026-10-06T06:41:32Z",
-   "status": "confirmed",
-   "photos": [
-    {
-     "src": "https://www.fda.gov/files/cinnamon_whiskey_nuts.jpg",
-     "thumb": "https://www.fda.gov/files/styles/recall_image_small/public/cinnamon_whiskey_nuts.jpg?itok=GvVDsmyf",
-     "alt": "Cinnamon Whiskey Pecans"
-    }
-   ],
-   "company_announcement_date": "2025-10-17"
-  },
-  {
-   "id": "publix-rich-creamy-vanilla-ice-cream-voluntarily-recalled-select-areas",
-   "url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/publix-rich-creamy-vanilla-ice-cream-voluntarily-recalled-select-areas",
-   "fda_publish_date": "2025-10-17",
-   "brands": "Publix",
-   "product": "Rich & Creamy Vanilla Ice Cream",
-   "types": [
-    "Food & Beverages",
-    "Allergens"
-   ],
-   "reason": "May contain undeclared egg allergen",
-   "company": "Publix",
-   "terminated": true,
-   "source": "FDA Recalls, Market Withdrawals, & Safety Alerts",
-   "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts",
-   "first_seen": "2026-10-06T06:01:01Z",
-   "retrieved": "2026-10-06T06:41:34Z",
-   "status": "confirmed",
-   "photos": [
-    {
-     "src": "https://www.fda.gov/files/image_1_203.jpg",
-     "thumb": "https://www.fda.gov/files/styles/recall_image_small/public/image_1_203.jpg?itok=M_0Rp0_5",
-     "alt": "Labeling, Publix Rich & Creamy French Vanilla"
-    },
-    {
-     "src": "https://www.fda.gov/files/image_2_159.jpg",
-     "thumb": "https://www.fda.gov/files/styles/recall_image_small/public/image_2_159.jpg?itok=MvkVibX9",
-     "alt": "Labeling, Publix Rich & Creamy Vanilla"
-    }
-   ],
-   "company_announcement_date": "2025-10-14"
-  },
-  {
-   "id": "kenz-henz-recalls-pastured-raised-eggs-because-possible-health-risk",
-   "url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/kenz-henz-recalls-pastured-raised-eggs-because-possible-health-risk",
-   "fda_publish_date": "2025-10-17",
-   "brands": "Kenz Henz",
-   "product": "Grade AA Large Pasture Raised Eggs",
-   "types": [
-    "Food & Beverages"
-   ],
-   "reason": "Potential to be contaminated with Salmonella",
-   "company": "Kenz Henz",
-   "terminated": false,
-   "source": "FDA Recalls, Market Withdrawals, & Safety Alerts",
-   "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts",
-   "first_seen": "2026-10-06T06:01:01Z",
-   "retrieved": "2026-10-06T06:41:36Z",
-   "status": "confirmed",
-   "photos": [],
-   "company_announcement_date": "2025-10-16"
-  },
-  {
-   "id": "jodys-inc-recalls-cabot-creamery-sea-salt-caramel-cheddar-popcorn-due-undeclared-peanuts-corrected",
-   "url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/jodys-inc-recalls-cabot-creamery-sea-salt-caramel-cheddar-popcorn-due-undeclared-peanuts-corrected",
-   "fda_publish_date": "2025-10-17",
-   "brands": "Cabot Creamery",
-   "product": "Sea Salt Caramel Cheddar Popcorn",
-   "types": [
-    "Food & Beverages",
-    "Allergens"
-   ],
-   "reason": "Due to presence of undeclared peanuts",
-   "company": "Jody's Inc.",
-   "terminated": false,
-   "source": "FDA Recalls, Market Withdrawals, & Safety Alerts",
-   "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts",
-   "first_seen": "2026-10-06T06:01:01Z",
-   "retrieved": "2026-10-06T06:41:39Z",
-   "status": "confirmed",
-   "photos": [
-    {
-     "src": "https://www.fda.gov/files/image_1_135.png",
-     "thumb": "https://www.fda.gov/files/styles/recall_image_small/public/image_1_135.png?itok=6HO-C8jV",
-     "alt": "Labeling, Front of package, Cabot Creamery, Sea Salt Caramel Cheddar"
-    },
-    {
-     "src": "https://www.fda.gov/files/image_2_101.png",
-     "thumb": "https://www.fda.gov/files/styles/recall_image_small/public/image_2_101.png?itok=8WB8JWT1",
-     "alt": "Labeling, Back of package, Cabot Creamery Sea Salt Caramel Cheddar"
-    },
-    {
-     "src": "https://www.fda.gov/files/image_3_64.png",
-     "thumb": "https://www.fda.gov/files/styles/recall_image_small/public/image_3_64.png?itok=3Uc78VJr",
-     "alt": "Labeling, lot code placement, Cabot Creamery Sea Salt Caramel Cheddar"
-    }
-   ],
-   "company_announcement_date": "2025-10-17"
-  },
-  {
-   "id": "aquastar-usa-corp-recalls-shrimp-because-possible-health-risk",
-   "url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/aquastar-usa-corp-recalls-shrimp-because-possible-health-risk",
-   "fda_publish_date": "2025-10-17",
-   "brands": "AquaStar, Best Yet, Waterfront Bistro, Publix",
-   "product": "Frozen Raw Shrimp",
-   "types": [
-    "Food & Beverages",
-    "Foodborne Illness",
-    "Shellfish"
-   ],
-   "reason": "Product may have been prepared, packed, or held under conditions whereby they may have become exposed to very low levels of cesium-137 (Cs-137)",
-   "company": "AquaStar Corp",
-   "terminated": false,
-   "source": "FDA Recalls, Market Withdrawals, & Safety Alerts",
-   "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts",
-   "first_seen": "2026-10-06T06:01:01Z",
-   "retrieved": "2026-10-06T06:41:41Z",
-   "status": "confirmed",
-   "photos": [
-    {
-     "src": "https://www.fda.gov/files/aquastar_table.jpg",
-     "thumb": "https://www.fda.gov/files/styles/recall_image_small/public/aquastar_table.jpg?itok=ARYgNYWu",
-     "alt": "AquaStar Recalled Shrimp Containers"
-    }
-   ],
-   "company_announcement_date": "2025-10-18"
   }
  ],
  "major": [
@@ -11817,7 +11680,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-10-17T18:42:12Z",
+   "retrieved": "2026-10-18T00:54:56Z",
    "status": "confirmed"
   },
   {
@@ -11830,7 +11693,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-10-17T18:42:14Z",
+   "retrieved": "2026-10-18T00:54:58Z",
    "status": "confirmed"
   },
   {
@@ -11843,7 +11706,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-10-17T18:42:16Z",
+   "retrieved": "2026-10-18T00:55:01Z",
    "status": "confirmed"
   },
   {
@@ -11856,7 +11719,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-10-17T18:42:18Z",
+   "retrieved": "2026-10-18T00:55:03Z",
    "status": "confirmed"
   },
   {
@@ -11869,7 +11732,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-10-17T18:42:21Z",
+   "retrieved": "2026-10-18T00:55:06Z",
    "status": "confirmed"
   },
   {
@@ -11882,7 +11745,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-10-17T18:42:23Z",
+   "retrieved": "2026-10-18T00:55:08Z",
    "status": "confirmed"
   },
   {
@@ -11895,7 +11758,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-10-17T18:42:25Z",
+   "retrieved": "2026-10-18T00:55:11Z",
    "status": "confirmed"
   },
   {
@@ -11908,7 +11771,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-10-17T18:42:27Z",
+   "retrieved": "2026-10-18T00:55:13Z",
    "status": "confirmed"
   },
   {
@@ -11921,7 +11784,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-10-17T18:42:29Z",
+   "retrieved": "2026-10-18T00:55:15Z",
    "status": "confirmed"
   },
   {
@@ -11934,7 +11797,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-10-17T18:42:31Z",
+   "retrieved": "2026-10-18T00:55:17Z",
    "status": "confirmed"
   },
   {
@@ -11947,7 +11810,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-10-17T18:42:33Z",
+   "retrieved": "2026-10-18T00:55:20Z",
    "status": "confirmed"
   },
   {
@@ -11960,7 +11823,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-10-17T18:42:35Z",
+   "retrieved": "2026-10-18T00:55:22Z",
    "status": "confirmed"
   },
   {
@@ -11973,7 +11836,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-10-17T18:42:37Z",
+   "retrieved": "2026-10-18T00:55:24Z",
    "status": "confirmed"
   }
  ]
