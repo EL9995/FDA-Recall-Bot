@@ -90,7 +90,7 @@ async function handle(env, update) {
   const user = await getUser(env, id);
   const result = !user && /^\/start\b/.test(msg.text)
     ? onFollow(now)
-    : onText(user, msg.text, { now, data: user?.step === 'done' ? await loadData() : null });
+    : onText(user, msg.text, { now, data: user && user.step !== 'freq' ? await loadData() : null }); // reports, search, the welcome report
   // Browsing and searching don't change anything, so only write when the settings did (KV writes are the tightest free limit).
   if (JSON.stringify(result.user) !== JSON.stringify(user)) await saveUser(env, id, result.user);
   await sendAll(env, id, result.messages);

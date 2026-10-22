@@ -28,8 +28,9 @@ const WORDS = {
   help: ['help', '?', 'info'],
   start: ['start', 'menu', 'settings', 'setting', 'change', 'hi', 'hello', 'hey'],
   report: ['report', 'latest', 'now', 'recalls', 'send', 'latest report'],
-  daily: ['daily', 'day', 'every day', '1'],
-  weekly: ['weekly', 'week', 'every week', '2'],
+  // 'daily' is the stored value for "New recalls only" (checked every morning), kept so existing subscribers carry over.
+  daily: ['new recalls only', 'new recalls', 'new only', 'new', 'daily', 'day', 'every day', '1'],
+  weekly: ['weekly summary', 'summary', 'weekly', 'week', 'every week', '2'],
   done: ['done', 'finish', 'finished', 'ok', 'save'],
   all: ['everything', 'all'],
   past: ['past reports', 'past', 'history', 'browse', 'archive', 'older'],
@@ -69,14 +70,16 @@ const html = (h, buttons, link) => ({ type: 'text', html: h.slice(0, 4096), ...(
 const text = (t, buttons) => html(esc(t), buttons);
 const MAIN = ['Latest report', 'Past reports', 'Search', 'Settings', 'Help', 'Stop'];
 
+const FREQ = ['New recalls only', 'Weekly summary'];
 function askFrequency(intro) {
-  return text(`${intro ? intro + '\n\n' : ''}How often do you want a recall report?\n\nDaily: only on days with new recalls in your picks.\nWeekly: every Monday, even if it's a quiet week.`, ['Daily', 'Weekly']);
+  return text(`${intro ? intro + '\n\n' : ''}How should I keep you posted?\n\nNew recalls only: a message only when FDA posts a new recall in your picks (I check every morning). Quiet days, no message.\nWeekly summary: every Monday, last week's recalls, even if it was quiet.`, FREQ);
 }
-function askGroups(user) {
+function askGroups(user, intro) {
   const picked = user.groups.length ? `Picked so far: ${groupNames(user)}.` : 'Nothing picked yet.';
   const labels = GROUPS.map((g) => (user.groups.includes(g.id) ? '✓ ' : '') + g.label);
-  return text(`Which recalls do you care about? Tap to pick or unpick, then tap Done.\n\n${picked}`, [...labels, 'Everything', 'Done']);
+  return text(`${intro ? intro + '\n\n' : ''}Which recalls do you care about? Tap to pick or unpick, then tap Done.\n\n${picked}`, [...labels, 'Everything', 'Done']);
 }
+const howOften = (u) => (u.freq === 'daily' ? 'a message whenever FDA posts a new recall in your picks (checked every morning, 10 am Eastern)' : 'a summary every Monday');
 const HELP = `I send short reports of new FDA recalls, with the product photos FDA publishes. Facts come straight from FDA.gov.
 
 Type any food or brand (like "broccoli") to see its recalls from the past year.
@@ -90,28 +93,22 @@ Always check the lot codes and dates on the FDA notice before throwing anything 
 
 // ---------- conversation ----------
 // Returns { user, messages }: user === null means delete the record.
+// Signup: pick categories -> a welcome report of the past 30 days -> New recalls only or Weekly summary.
+// Settings later runs the same steps without the welcome report.
 export function onFollow(now) {
-  const user = { step: 'freq', freq: null, groups: [], created: now, lastSent: null };
-  return { user, messages: [askFrequency("Hi! I'm FDA Recall Bot. I send short reports of new FDA recalls, with photos, straight from FDA.gov.\n\nI only keep your Telegram chat ID and the settings you pick here. Send Stop anytime to delete them.")] };
+  const user = { step: 'groups', freq: null, groups: [], created: now, lastSent: null };
+  return { user, messages: [askGroups(user, "Hi! I'm FDA Recall Bot. I send FDA recalls, with the product photos, straight from FDA.gov.\n\nI only keep your Telegram chat ID and the settings you pick here. Send Stop anytime to delete them.")] };
 }
 
 export function onText(user, input, ctx) {
   const t = clean(input);
   if (is(t, 'stop')) return { user: null, messages: [text("You're unsubscribed and your settings are deleted. Send /start anytime to sign up again.", [])] };
-  if (!user || is(t, 'start')) {
-    const fresh = onFollow(ctx.now).user;
-    if (user) { fresh.groups = user.groups; fresh.created = user.created; fresh.lastSent = user.lastSent; }
-    return { user: fresh, messages: [askFrequency(user ? null : 'Hi! I send short reports of new FDA recalls, with photos, from FDA.gov.')] };
+  if (!user) return onFollow(ctx.now);
+  if (is(t, 'start')) {
+    const u = { ...user, step: 'groups', welcomed: true };
+    return { user: u, messages: [askGroups(u, 'Settings. Your picks are ticked below.')] };
   }
   if (is(t, 'help')) return { user, messages: [text(HELP, user.step === 'done' ? MAIN : null)] };
-
-  if (user.step === 'freq') {
-    if (is(t, 'daily') || is(t, 'weekly')) {
-      const u = { ...user, freq: is(t, 'daily') ? 'daily' : 'weekly', step: 'groups' };
-      return { user: u, messages: [askGroups(u)] };
-    }
-    return { user, messages: [askFrequency('Tap Daily or Weekly.')] };
-  }
 
   if (user.step === 'groups') {
     if (is(t, 'all')) {
@@ -120,9 +117,12 @@ export function onText(user, input, ctx) {
     }
     if (is(t, 'done')) {
       if (!user.groups.length) return { user, messages: [askGroups(user)] };
-      const u = { ...user, step: 'done', lastSent: user.lastSent || ctx.now };
-      const when = u.freq === 'daily' ? 'a report on days with new recalls in your picks' : 'a report every Monday';
-      return { user: u, messages: [text(`All set. You'll get ${when}.\n\nYour picks: ${groupNames(u)}.\n\nTip: type any food or brand, like "broccoli" or "Gelatelli", to see its FDA recalls from the past year.\n\nWant this week's recalls now?`, MAIN)] };
+      const u = { ...user, step: 'freq', welcomed: true };
+      if (user.welcomed) return { user: u, messages: [askFrequency(`Your picks: ${groupNames(u)}.`)] };
+      // First signup: show what they'd have missed, then ask how to keep them posted.
+      const end = day(ctx.now);
+      const welcome = buildReport(ctx.data, u, { from: addDays(end, -29), to: end, title: 'Welcome! FDA recalls in your picks, past 30 days' });
+      return { user: u, messages: [...welcome.messages, askFrequency(null)] };
     }
     const g = GROUPS.find((x) => clean(x.label) === t);
     if (g) {
@@ -131,6 +131,16 @@ export function onText(user, input, ctx) {
       return { user: u, messages: [askGroups(u)] };
     }
     return { user, messages: [askGroups(user)] };
+  }
+
+  if (user.step === 'freq') {
+    if (!user.groups.length) { const u = { ...user, step: 'groups' }; return { user: u, messages: [askGroups(u)] }; }
+    if (is(t, 'daily') || is(t, 'weekly')) {
+      // New recalls count from now on (signup), so nobody gets the welcome report again.
+      const u = { ...user, freq: is(t, 'daily') ? 'daily' : 'weekly', step: 'done', lastSent: user.lastSent || ctx.now };
+      return { user: u, messages: [text(`All set. You'll get ${howOften(u)}.\n\nYour picks: ${groupNames(u)}.\n\nTip: type any food or brand, like "broccoli" or "Gelatelli", to see its FDA recalls from the past year.`, MAIN)] };
+    }
+    return { user, messages: [askFrequency('Tap one of these:')] };
   }
 
   // step === 'done'
@@ -230,7 +240,7 @@ export function buildReport(data, user, { from, to, title, recalls, range, searc
 }
 
 // Scheduled run. Returns the pushes to send and each user's updated record.
-// Weekly users: Mondays. Daily users: only when something new in their picks appeared since the last report.
+// Weekly users: Mondays. New-recalls-only users (stored as 'daily'): only when something new in their picks appeared since the last report.
 export function scheduled(users, data, now) {
   const today = day(now);
   const monday = new Date(now).getUTCDay() === 1;

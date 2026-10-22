@@ -54,7 +54,7 @@
     <p>Runs the real bot logic against the live recall data. Nothing is sent and nothing is saved.</p>
     <button class="btn" id="follow">Start the bot<small>What someone sees after opening the bot and tapping Start</small></button>
     <button class="btn" id="monday">Run the Monday report<small>The weekly push, replaying the most recent Monday 10 am ET</small></button>
-    <button class="btn" id="daily">Run the daily check<small>Daily subscribers only get one if something new arrived</small></button>
+    <button class="btn" id="daily">Run the morning check<small>"New recalls only" subscribers get a message only if something new arrived</small></button>
     <button class="btn" id="reset">Reset<small>Forget this test subscriber</small></button>
     <p style="margin-top:14px">What the bot stores for this person:</p>
     <pre id="state">nothing</pre>
@@ -97,7 +97,7 @@ function render(messages, from = 'bot') {
 async function say(t) {
   if (!t.trim()) return;
   render([{ type: 'text', html: esc(t) }], 'me');
-  const ready = user?.step === 'done';
+  const ready = user && user.step !== 'freq';
   const r = onText(user, t, { now: new Date().toISOString(), data: ready ? await getData() : null });
   user = r.user; show(user); render(r.messages);
 }
@@ -123,7 +123,7 @@ $('#monday').addEventListener('click', () => runScheduled(lastMonday(), 'Monday 
 $('#daily').addEventListener('click', () => {
   // Pretend the last report was 3 days ago so recent recalls count as new.
   if (user) user = { ...user, lastSent: new Date(Date.now() - 3 * 864e5).toISOString() };
-  runScheduled(new Date().toISOString(), 'Daily 10 am ET run (last report 3 days ago)');
+  runScheduled(new Date().toISOString(), 'Morning 10 am ET check (last message 3 days ago)');
 });
 $('#reset').addEventListener('click', () => { user = null; show(null); $('#chat').innerHTML = '<div class="sys">Reset. Tap "Start the bot" to begin →</div>'; $('#quick').innerHTML = ''; });
 </script>

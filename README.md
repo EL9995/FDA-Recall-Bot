@@ -1,12 +1,12 @@
 # FDA Recall Bot
 
-A Telegram bot that sends you a daily or weekly report of new FDA recalls, with FDA's product photos, for the things you care about: groceries, pet food, supplements, baby food, cosmetics, or drugs and devices. A scheduled job collects the recalls from FDA.gov every 6 hours, and a free Cloudflare Worker sends the reports. Official public data only: every record keeps its source, link and retrieval time.
+A Telegram bot that tells you about new FDA recalls, as they're posted or as a weekly summary, with FDA's product photos, for the things you care about: groceries, pet food, supplements, baby food, cosmetics, or drugs and devices. A scheduled job collects the recalls from FDA.gov every 6 hours, and a free Cloudflare Worker sends the reports. Official public data only: every record keeps its source, link and retrieval time.
 
 **Try it:** [open the bot in Telegram](https://t.me/FDA_Recall_Bot) · [web report](https://el9995.github.io/FDA-Recall-Bot/) · [bot simulator](https://el9995.github.io/FDA-Recall-Bot/bot/sim.html) (the full conversation in your browser, no Telegram account needed)
 
 ## What's here
 
-- **Telegram bot (`bot/`):** open the bot, pick Daily or Weekly and which recalls, and get a short report: every recall linked to its FDA notice, an album of FDA's product photos, and a slide deck of every recall that opens inside Telegram. Browse past reports by week or month, or type a brand or product to search the past year. Runs free on Cloudflare Workers. Setup steps in `bot/SETUP.md`.
+- **Telegram bot (`bot/`):** open the bot, pick which recalls, get a welcome report of the past 30 days, then choose new recalls only or a weekly summary. Each report is short: every recall linked to its FDA notice, an album of FDA's product photos, and a slide deck of every recall that opens inside Telegram. Browse past reports by week or month, or type a brand or product to search the past year. Runs free on Cloudflare Workers. Setup steps in `bot/SETUP.md`.
 - **Recall report (home page):** daily or weekly report of new FDA recall notices, with the product photos FDA publishes. Visitors pick the FDA product types they care about (saved in their browser) and read it as a list or as slides. One RSS feed per product type in `feeds/`.
 - **Barcode check (`check.html`, test):** type or scan a barcode to see the product from USDA FoodData Central and any matching FDA recall from openFDA.
 
