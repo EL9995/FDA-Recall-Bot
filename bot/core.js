@@ -104,6 +104,12 @@ export function onText(user, input, ctx) {
   const t = clean(input);
   if (is(t, 'stop')) return { user: null, messages: [text("You're unsubscribed and your settings are deleted. Send /start anytime to sign up again.", [])] };
   if (!user) return onFollow(ctx.now);
+  // Telegram's Start button (/start) always runs the full signup, welcome report included, with the person's picks
+  // pre-ticked: someone who cleared the chat and tapped Start expects to begin again. The Settings button is the short version.
+  if (/^\/start\b/.test(String(input).trim())) {
+    const u = { ...user, step: 'groups', welcomed: false };
+    return { user: u, messages: [askGroups(u, "Hi again! Let's set you up. Your picks are ticked below.")] };
+  }
   if (is(t, 'start')) {
     const u = { ...user, step: 'groups', welcomed: true };
     return { user: u, messages: [askGroups(u, 'Settings. Your picks are ticked below.')] };

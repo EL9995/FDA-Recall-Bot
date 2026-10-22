@@ -43,7 +43,7 @@ jobs:
       - name: Collect the site files
         run: |
           mkdir _site
-          cp -r index.html check.html favicon.svg .nojekyll css js data feeds _site/
+          cp -r index.html favicon.svg .nojekyll css js data feeds _site/
           mkdir _site/bot && cp bot/sim.html bot/core.js _site/bot/   # Telegram bot simulator
           # Stamp this deploy's commit on script and style links, so browsers (and Telegram's in-app
           # browser) load the new files right away instead of a cached copy.
