@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>LINE Bot Simulator</title>
+<title>Telegram Bot Simulator</title>
 <meta name="robots" content="noindex">
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <style>
-  /* Simulates the LINE chat using the real bot logic (core.js). Nothing is sent anywhere. */
-  :root { --bg: #8cabd9; --me: #7ee36f; --bot: #ffffff; --ink: #111; --muted: #5b6475; --panel: #f4f6fa; --line: #d5dce8; --accent: #2e55e6; }
+  /* Simulates the Telegram chat using the real bot logic (core.js). Nothing is sent anywhere. */
+  :root { --bg: #9bbcd6; --me: #e1fec6; --bot: #ffffff; --ink: #111; --muted: #5b6475; --panel: #f4f6fa; --line: #d5dce8; --accent: #2e55e6; }
   * { box-sizing: border-box; }
   body { margin: 0; font: 15px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: var(--ink); background: var(--panel); }
   .layout { display: flex; gap: 20px; justify-content: center; padding: 20px 16px; flex-wrap: wrap; }
@@ -21,19 +21,18 @@
   .msg.bot { background: var(--bot); align-self: flex-start; border-top-left-radius: 4px; }
   .msg.me { background: var(--me); align-self: flex-end; border-top-right-radius: 4px; }
   .sys { align-self: center; font-size: 12px; color: #fff; background: rgba(0,0,0,.25); padding: 2px 10px; border-radius: 10px; }
-  .carousel { display: flex; gap: 8px; overflow-x: auto; align-self: stretch; padding-bottom: 4px; scroll-snap-type: x mandatory; }
-  .card { flex: 0 0 230px; background: #fff; border-radius: 14px; overflow: hidden; display: flex; flex-direction: column; scroll-snap-align: start; }
-  .card img { width: 100%; aspect-ratio: 1; object-fit: contain; background: #fff; border-bottom: 1px solid #eee; }
-  .card .body { padding: 10px 12px; display: flex; flex-direction: column; gap: 4px; flex: 1; }
-  .card .foot { padding: 4px 12px 10px; text-align: center; }
-  .card .foot a { color: var(--accent); font-weight: 600; font-size: 13px; text-decoration: none; }
-  .card .foot a.primary { display: block; background: var(--accent); color: #fff; border-radius: 8px; padding: 8px; }
-  .quick { display: flex; gap: 6px; overflow-x: auto; padding: 8px 10px; background: rgba(255,255,255,.35); min-height: 0; }
+  .msg a { color: #168acd; }
+  .album { align-self: flex-start; max-width: 82%; display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; border-radius: 14px; overflow: hidden; background: #fff; }
+  .album figure { margin: 0; position: relative; }
+  .album img { width: 100%; aspect-ratio: 1; object-fit: contain; background: #fff; display: block; }
+  .album figcaption { font-size: 11px; padding: 4px 6px; white-space: pre-wrap; color: var(--muted); }
+  .inline { align-self: flex-start; max-width: 82%; display: block; text-align: center; background: rgba(0,0,0,.18); color: #fff; font-weight: 600; font-size: 13px; text-decoration: none; padding: 7px 12px; border-radius: 10px; margin-top: -4px; }
+  .quick { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; padding: 8px; background: #f0f2f5; min-height: 0; }
   .quick:empty { display: none; }
-  .quick button { flex: none; border: 1px solid #06c755; color: #06a046; background: #fff; border-radius: 999px; padding: 6px 12px; font: 600 13px inherit; cursor: pointer; }
+  .quick button { border: 0; color: var(--ink); background: #fff; border-radius: 8px; padding: 9px 8px; font: 500 13px inherit; cursor: pointer; box-shadow: 0 1px 1px rgba(0,0,0,.12); }
   form { display: flex; gap: 6px; padding: 8px; background: #fff; }
   form input { flex: 1; min-width: 0; border: 1px solid var(--line); border-radius: 18px; padding: 8px 12px; font: inherit; }
-  form button { border: 0; background: #06c755; color: #fff; border-radius: 18px; padding: 0 14px; font-weight: 700; cursor: pointer; }
+  form button { border: 0; background: #2ea6e0; color: #fff; border-radius: 18px; padding: 0 14px; font-weight: 700; cursor: pointer; }
   .panel { width: 340px; max-width: 100%; }
   .panel h1 { font-size: 20px; margin: 0 0 6px; }
   .panel p { color: var(--muted); font-size: 14px; margin: 0 0 12px; }
@@ -45,15 +44,15 @@
 <body>
 <div class="layout">
   <div class="phone">
-    <div class="top">FDA Recall Bot <small>LINE bot · simulator</small></div>
-    <div class="chat" id="chat"><div class="sys">Tap "Add bot as friend" to start →</div></div>
+    <div class="top">FDA Recall Bot <small>Telegram bot · simulator</small></div>
+    <div class="chat" id="chat"><div class="sys">Tap "Start the bot" to begin →</div></div>
     <div class="quick" id="quick"></div>
     <form id="f"><input id="t" placeholder="Type a message" autocomplete="off"><button>Send</button></form>
   </div>
   <div class="panel">
-    <h1>LINE bot simulator</h1>
+    <h1>Telegram bot simulator</h1>
     <p>Runs the real bot logic against the live recall data. Nothing is sent and nothing is saved.</p>
-    <button class="btn" id="follow">Add bot as friend<small>What someone sees after scanning the QR code</small></button>
+    <button class="btn" id="follow">Start the bot<small>What someone sees after opening the bot and tapping Start</small></button>
     <button class="btn" id="monday">Run the Monday report<small>The weekly push, replaying the most recent Monday 10 am ET</small></button>
     <button class="btn" id="daily">Run the daily check<small>Daily subscribers only get one if something new arrived</small></button>
     <button class="btn" id="reset">Reset<small>Forget this test subscriber</small></button>
@@ -63,10 +62,9 @@
 </div>
 
 <script type="module">
-import { onFollow, onText, scheduled } from './core.js';
+import { onFollow, onText, scheduled, esc } from './core.js';
 
 const $ = (s) => document.querySelector(s);
-const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 let user = null;
 let data = null;
 const ID = 'U-test';
@@ -80,37 +78,24 @@ function show(state) { $('#state').textContent = state ? JSON.stringify(state, n
 
 function add(html) { const c = $('#chat'); c.insertAdjacentHTML('beforeend', html); c.scrollTop = c.scrollHeight; }
 
-// Rough rendering of LINE's flex boxes: enough to judge content and layout.
-function renderBox(box) {
-  return (box.contents || []).map((x) => {
-    if (x.type === 'text') {
-      const size = { xxs: 11, xs: 12, sm: 13, md: 15, lg: 17 }[x.size] || 14;
-      return `<div style="font-size:${size}px;${x.weight === 'bold' ? 'font-weight:700;' : ''}${x.color ? `color:${x.color};` : ''}${x.align === 'center' ? 'text-align:center;' : ''}">${esc(x.text)}</div>`;
-    }
-    if (x.type === 'button') return `<a href="${esc(x.action.uri)}" target="_blank" rel="noopener" class="${x.style === 'primary' ? 'primary' : ''}">${esc(x.action.label)}</a>`;
-    if (x.type === 'box') return renderBox(x);
-    return '';
-  }).join('');
-}
-
+// Telegram rendering: HTML text (core.js escapes everything it didn't write), photo albums,
+// an inline link button under a message, and the reply keyboard (an empty list removes it).
 function render(messages, from = 'bot') {
-  $('#quick').innerHTML = '';
   for (const m of messages) {
-    if (m.type === 'text') add(`<div class="msg ${from}">${esc(m.text)}</div>`);
-    if (m.type === 'flex') {
-      add(`<div class="carousel">${m.contents.contents.map((b) => `<div class="card">
-        ${b.hero ? `<a href="${esc(b.hero.action.uri)}" target="_blank" rel="noopener"><img src="${esc(b.hero.url)}" alt=""></a>` : ''}
-        <div class="body">${renderBox(b.body)}</div><div class="foot">${renderBox(b.footer)}</div></div>`).join('')}</div>`);
+    if (m.type === 'text') {
+      add(`<div class="msg ${from}">${m.html.replace(/<a /g, '<a target="_blank" rel="noopener" ')}</div>`);
+      if (m.link) add(`<a class="inline" href="${esc(m.link.url)}" target="_blank" rel="noopener">${esc(m.link.label)} ↗</a>`);
+      if (m.buttons) $('#quick').innerHTML = m.buttons.map((l) => `<button type="button" data-t="${esc(l)}">${esc(l)}</button>`).join('');
     }
-    if (m.quickReply) {
-      $('#quick').innerHTML = m.quickReply.items.map((i) => `<button type="button" data-t="${esc(i.action.text)}">${esc(i.action.label)}</button>`).join('');
+    if (m.type === 'album') {
+      add(`<div class="album">${m.items.map((i) => `<figure><img src="${esc(i.thumb || i.photo)}" alt=""><figcaption>${esc(i.caption)}</figcaption></figure>`).join('')}</div>`);
     }
   }
 }
 
 async function say(t) {
   if (!t.trim()) return;
-  render([{ type: 'text', text: t }], 'me');
+  render([{ type: 'text', html: esc(t) }], 'me');
   const ready = user?.step === 'done';
   const r = onText(user, t, { now: new Date().toISOString(), data: ready ? await getData() : null });
   user = r.user; show(user); render(r.messages);
@@ -132,14 +117,14 @@ async function runScheduled(now, label) {
 
 $('#quick').addEventListener('click', (e) => { const b = e.target.closest('button'); if (b) say(b.dataset.t); });
 $('#f').addEventListener('submit', (e) => { e.preventDefault(); const t = $('#t').value; $('#t').value = ''; say(t); });
-$('#follow').addEventListener('click', () => { add('<div class="sys">You added FDA Recall Bot as a friend</div>'); const r = onFollow(new Date().toISOString()); user = r.user; show(user); render(r.messages); });
+$('#follow').addEventListener('click', () => { add('<div class="msg me">/start</div>'); $('#quick').innerHTML = ''; const r = onFollow(new Date().toISOString()); user = r.user; show(user); render(r.messages); });
 $('#monday').addEventListener('click', () => runScheduled(lastMonday(), 'Monday 10 am ET: weekly report run (replaying the most recent Monday)'));
 $('#daily').addEventListener('click', () => {
   // Pretend the last report was 3 days ago so recent recalls count as new.
   if (user) user = { ...user, lastSent: new Date(Date.now() - 3 * 864e5).toISOString() };
   runScheduled(new Date().toISOString(), 'Daily 10 am ET run (last report 3 days ago)');
 });
-$('#reset').addEventListener('click', () => { user = null; show(null); $('#chat').innerHTML = '<div class="sys">Reset. Tap "Add bot as friend" to start →</div>'; $('#quick').innerHTML = ''; });
+$('#reset').addEventListener('click', () => { user = null; show(null); $('#chat').innerHTML = '<div class="sys">Reset. Tap "Start the bot" to begin →</div>'; $('#quick').innerHTML = ''; });
 </script>
 </body>
 </html>

@@ -1,6 +1,10 @@
-// FDA Recall Bot on LINE: conversation, settings and report building.
+// FDA Recall Bot on Telegram: conversation, settings and report building.
 // Pure functions only. The Cloudflare Worker (worker.js) and the browser simulator (sim.html) supply
-// storage, LINE's API and the recall data, so this file behaves the same in both.
+// storage, Telegram's API and the recall data, so this file behaves the same in both.
+//
+// Messages are plain objects the Worker turns into Telegram calls:
+//   { type: 'text', html, buttons?: [label], link?: { label, url } }   buttons = reply keyboard, link = inline button
+//   { type: 'album', items: [{ photo, thumb, caption }] }              2-10 photos, or 1 sent as a single photo
 //
 // Report facts always come straight from data/recalls.json (FDA.gov). Nothing here writes or rewords them.
 
@@ -29,7 +33,7 @@ const WORDS = {
   all: ['everything', 'all'],
 };
 const is = (t, k) => WORDS[k].includes(t);
-const clean = (s) => String(s || '').toLowerCase().replace(/[✓✔️]/g, '').trim();
+const clean = (s) => String(s || '').toLowerCase().replace(/[✓✔️]/g, '').replace(/^\//, '').replace(/@\w+$/, '').trim(); // "/stop@Bot" -> "stop"
 
 // ---------- dates ----------
 const day = (d) => new Date(d).toISOString().slice(0, 10);
@@ -51,9 +55,10 @@ export function typesFor(user, data) {
 }
 const groupNames = (user) => GROUPS.filter((g) => user.groups.includes(g.id)).map((g) => g.label).join(', ');
 
-// ---------- LINE message helpers ----------
-const qr = (labels) => ({ items: labels.slice(0, 13).map((l) => ({ type: 'action', action: { type: 'message', label: l.slice(0, 20), text: l.replace(/^✓ /, '') } })) });
-const text = (t, quick) => ({ type: 'text', text: t.slice(0, 5000), ...(quick ? { quickReply: qr(quick) } : {}) });
+// ---------- message helpers ----------
+export const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const html = (h, buttons, link) => ({ type: 'text', html: h.slice(0, 4096), ...(buttons ? { buttons } : {}), ...(link ? { link } : {}) });
+const text = (t, buttons) => html(esc(t), buttons);
 const MAIN = ['Latest report', 'Settings', 'Help', 'Stop'];
 
 function askFrequency(intro) {
@@ -76,12 +81,12 @@ Always check the lot codes and dates on the FDA notice before throwing anything 
 // Returns { user, messages }: user === null means delete the record.
 export function onFollow(now) {
   const user = { step: 'freq', freq: null, groups: [], created: now, lastSent: null };
-  return { user, messages: [askFrequency("Hi! I'm FDA Recall Bot. I send short reports of new FDA recalls, with photos, straight from FDA.gov.\n\nI only keep your LINE user ID and the settings you pick here. Send Stop anytime to delete them.")] };
+  return { user, messages: [askFrequency("Hi! I'm FDA Recall Bot. I send short reports of new FDA recalls, with photos, straight from FDA.gov.\n\nI only keep your Telegram chat ID and the settings you pick here. Send Stop anytime to delete them.")] };
 }
 
 export function onText(user, input, ctx) {
   const t = clean(input);
-  if (is(t, 'stop')) return { user: null, messages: [text("You're unsubscribed and your settings are deleted. Send Start anytime to sign up again.")] };
+  if (is(t, 'stop')) return { user: null, messages: [text("You're unsubscribed and your settings are deleted. Send /start anytime to sign up again.", [])] };
   if (!user || is(t, 'start')) {
     const fresh = onFollow(ctx.now).user;
     if (user) { fresh.groups = user.groups; fresh.created = user.created; fresh.lastSent = user.lastSent; }
@@ -127,36 +132,7 @@ export function onText(user, input, ctx) {
 }
 
 // ---------- reports ----------
-function bubble(r) {
-  const photo = r.photos && r.photos[0];
-  return {
-    type: 'bubble', size: 'kilo',
-    ...(photo ? { hero: { type: 'image', url: photo.src, size: 'full', aspectRatio: '1:1', aspectMode: 'fit', backgroundColor: '#FFFFFF', action: { type: 'uri', uri: r.url } } } : {}),
-    body: {
-      type: 'box', layout: 'vertical', spacing: 'sm',
-      contents: [
-        { type: 'text', text: `FDA · ${nice(r.fda_publish_date)}`, size: 'xs', color: '#55627C' },
-        { type: 'text', text: (r.brands || r.company).slice(0, 100), weight: 'bold', size: 'md', wrap: true },
-        { type: 'text', text: r.product.slice(0, 200), size: 'sm', wrap: true, maxLines: 4 },
-        { type: 'text', text: r.reason.slice(0, 160), size: 'sm', weight: 'bold', color: '#C0262D', wrap: true },
-        { type: 'text', text: r.company.slice(0, 100), size: 'xs', color: '#55627C', wrap: true },
-        ...(photo ? [] : [{ type: 'text', text: 'FDA did not publish a photo with this notice.', size: 'xxs', color: '#55627C', wrap: true }]),
-      ],
-    },
-    footer: { type: 'box', layout: 'vertical', contents: [{ type: 'button', style: 'link', height: 'sm', action: { type: 'uri', label: 'Lot codes on FDA notice', uri: r.url } }] },
-  };
-}
-
-function moreBubble(n, link) {
-  return {
-    type: 'bubble', size: 'kilo',
-    body: { type: 'box', layout: 'vertical', justifyContent: 'center', contents: [
-      { type: 'text', text: n ? `${n} more recall${n === 1 ? '' : 's'}` : 'See them as slides', weight: 'bold', size: 'lg', wrap: true, align: 'center' },
-      { type: 'text', text: 'Open the full report with every photo.', size: 'sm', color: '#55627C', wrap: true, align: 'center', margin: 'md' },
-    ] },
-    footer: { type: 'box', layout: 'vertical', contents: [{ type: 'button', style: 'primary', color: '#2E55E6', action: { type: 'uri', label: 'Open slides', uri: link } }] },
-  };
-}
+const caption = (r) => `${r.brands || r.company}: ${r.product}\n${r.reason}\nFDA · ${nice(r.fda_publish_date)}`.slice(0, 1024);
 
 export function reportLink(user, data, from, to) {
   const p = new URLSearchParams({ range: from === to ? 'day' : 'week', end: to, slides: '1' });
@@ -174,12 +150,15 @@ export function buildReport(data, user, { from, to, title, recalls }) {
   if (!list.length) {
     return { count: 0, messages: [text(`${title} (${range})\n\nNo FDA recall notices in your picks (${groupNames(user)}).\n\nWe check FDA.gov every few hours. Not every recall is posted there.`, MAIN)] };
   }
-  const lines = list.slice(0, 10).map((r) => `• ${r.brands || r.company}: ${r.reason}`).join('\n');
-  const summary = text(`${title} (${range})\n\n${list.length} recall${list.length === 1 ? '' : 's'} in your picks:\n${lines}${list.length > 10 ? `\n…and ${list.length - 10} more` : ''}\n\nSwipe the cards below. Check the lot codes on the FDA notice before throwing anything out.`);
-  const cards = list.slice(0, 10).map(bubble);
-  cards.push(moreBubble(list.length - cards.length, link));
-  const flex = { type: 'flex', altText: `${list.length} FDA recall${list.length === 1 ? '' : 's'} in your picks`, contents: { type: 'carousel', contents: cards }, quickReply: qr(MAIN) };
-  return { count: list.length, messages: [summary, flex] };
+  const shown = list.slice(0, 10);
+  const lines = shown.map((r) => `• <a href="${esc(r.url)}">${esc(r.brands || r.company)}</a>: ${esc(r.reason)}`).join('\n');
+  const more = list.length > 10 ? `\n…and ${list.length - 10} more` : '';
+  const summary = html(`<b>${esc(title)}</b> (${esc(range)})\n\n${list.length} recall${list.length === 1 ? '' : 's'} in your picks:\n${lines}${more}\n\nTap a name for the FDA notice. Check the lot codes there before throwing anything out.`, MAIN);
+  const items = shown.filter((r) => r.photos && r.photos[0]).map((r) => ({ photo: r.photos[0].src, thumb: r.photos[0].thumb, caption: caption(r) }));
+  const messages = [summary];
+  if (items.length) messages.push({ type: 'album', items });
+  messages.push(html('Every recall with all its photos:', null, { label: 'Open the full report', url: link }));
+  return { count: list.length, messages };
 }
 
 // Scheduled run. Returns the pushes to send and each user's updated record.

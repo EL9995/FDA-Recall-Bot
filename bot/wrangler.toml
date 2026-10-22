@@ -1,4 +1,4 @@
-# Cloudflare Worker settings for the LINE bot (free plan). See bot/SETUP.md.
+# Cloudflare Worker settings for the Telegram bot (free plan). See bot/SETUP.md.
 name = "fda-recall-bot"
 main = "worker.js"
 compatibility_date = "2026-09-01"
@@ -7,7 +7,7 @@ compatibility_date = "2026-09-01"
 [triggers]
 crons = ["0 14 * * *"]
 
-# Subscriber settings. Replace the id with the one Cloudflare shows after creating the namespace.
+# Subscriber settings: the Workers KV namespace ID (an ID, not a secret).
 [[kv_namespaces]]
 binding = "SUBSCRIBERS"
-id = "REPLACE_WITH_KV_NAMESPACE_ID"
+id = "9f83adbcc07e4ab9b871056869299391"

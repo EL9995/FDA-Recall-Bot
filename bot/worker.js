@@ -1,32 +1,69 @@
-// Cloudflare Worker for FDA Recall Bot on LINE.
-//   POST /line   LINE webhook: follow, unfollow and text messages (replies are free on LINE).
-//   cron         Daily run: pushes reports to subscribers (pushes count toward LINE's monthly quota).
-// Storage: Workers KV, one key per subscriber ("u:<LINE user ID>") holding only their settings.
-// Secrets (set in Cloudflare, never in this repo): LINE_CHANNEL_SECRET, LINE_CHANNEL_ACCESS_TOKEN.
+// Cloudflare Worker for FDA Recall Bot on Telegram.
+//   POST /telegram   Telegram webhook: messages, and blocks of the bot.
+//   cron             Daily run: sends reports to subscribers.
+// Storage: Workers KV, one key per subscriber ("u:<Telegram chat ID>") holding only their settings.
+// Secret (set in Cloudflare by the deploy workflow, never in this repo): TELEGRAM_BOT_TOKEN.
+// The webhook secret Telegram sends back is derived from the token (webhookSecret below), so there's
+// only one secret to manage. The deploy workflow registers the webhook with the same value.
 import { onFollow, onText, scheduled, SITE } from './core.js';
 
-const LINE = 'https://api.line.me/v2/bot/message';
 const DATA_URL = SITE + 'data/recalls.json';
 
-async function validSignature(body, signature, secret) {
-  if (!signature) return false;
-  const key = await crypto.subtle.importKey('raw', new TextEncoder().encode(secret), { name: 'HMAC', hash: 'SHA-256' }, false, ['sign']);
-  const mac = await crypto.subtle.sign('HMAC', key, new TextEncoder().encode(body));
-  const expected = btoa(String.fromCharCode(...new Uint8Array(mac)));
-  if (expected.length !== signature.length) return false;
+async function webhookSecret(token) {
+  const hash = await crypto.subtle.digest('SHA-256', new TextEncoder().encode('webhook:' + token));
+  return [...new Uint8Array(hash)].map((b) => b.toString(16).padStart(2, '0')).join('');
+}
+
+function sameText(a, b) {
+  if (!a || !b || a.length !== b.length) return false;
   let diff = 0;
-  for (let i = 0; i < expected.length; i++) diff |= expected.charCodeAt(i) ^ signature.charCodeAt(i);
+  for (let i = 0; i < a.length; i++) diff |= a.charCodeAt(i) ^ b.charCodeAt(i);
   return diff === 0;
 }
 
-async function line(env, path, payload) {
-  const res = await fetch(`${LINE}/${path}`, {
+async function tg(env, method, payload) {
+  const res = await fetch(`https://api.telegram.org/bot${env.TELEGRAM_BOT_TOKEN}/${method}`, {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${env.LINE_CHANNEL_ACCESS_TOKEN}` },
+    headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(payload),
   });
-  if (!res.ok) console.error(`LINE ${path} ${res.status}: ${await res.text()}`);
+  if (!res.ok) console.error(`Telegram ${method} ${res.status}: ${await res.text()}`);
   return res.ok;
+}
+
+// Reply keyboard, two buttons per row, kept on screen so the main menu is always one tap away.
+// An empty list removes the keyboard (after Stop).
+function keyboard(labels) {
+  if (!labels.length) return { remove_keyboard: true };
+  const rows = [];
+  for (let i = 0; i < labels.length; i += 2) rows.push(labels.slice(i, i + 2).map((text) => ({ text })));
+  return { keyboard: rows, resize_keyboard: true, is_persistent: true };
+}
+
+// Sends one core.js message. Returns false if Telegram refused it.
+async function send(env, chat_id, m) {
+  if (m.type === 'text') {
+    const reply_markup = m.link ? { inline_keyboard: [[{ text: m.link.label, url: m.link.url }]] } : m.buttons ? keyboard(m.buttons) : undefined;
+    return tg(env, 'sendMessage', { chat_id, text: m.html, parse_mode: 'HTML', link_preview_options: { is_disabled: true }, reply_markup });
+  }
+  if (m.type === 'album') {
+    // FDA's full-size photos can be over Telegram's 5 MB limit for linked files; fall back to FDA's thumbnails.
+    for (const key of ['photo', 'thumb']) {
+      const items = m.items.filter((i) => i[key]);
+      if (!items.length) continue;
+      const ok = items.length === 1
+        ? await tg(env, 'sendPhoto', { chat_id, photo: items[0][key], caption: items[0].caption })
+        : await tg(env, 'sendMediaGroup', { chat_id, media: items.map((i) => ({ type: 'photo', media: i[key], caption: i.caption })) });
+      if (ok) return true;
+    }
+    return true; // photos are extra: the summary already lists every recall with its FDA link
+  }
+  return true;
+}
+
+async function sendAll(env, chat_id, messages) {
+  for (const m of messages) if (!(await send(env, chat_id, m))) return false;
+  return true;
 }
 
 async function loadData() {
@@ -38,20 +75,23 @@ async function loadData() {
 const getUser = async (env, id) => JSON.parse((await env.SUBSCRIBERS.get(`u:${id}`)) || 'null');
 const saveUser = (env, id, user) => (user ? env.SUBSCRIBERS.put(`u:${id}`, JSON.stringify(user)) : env.SUBSCRIBERS.delete(`u:${id}`));
 
-async function handle(env, ev) {
-  const id = ev.source?.userId;
-  if (!id || ev.source.type !== 'user') return; // ignore group chats
+async function handle(env, update) {
+  // Blocking the bot deletes the person's settings.
+  const member = update.my_chat_member;
+  if (member) {
+    if (member.chat.type === 'private' && member.new_chat_member.status === 'kicked') await saveUser(env, member.chat.id, null);
+    return;
+  }
+  const msg = update.message;
+  if (!msg || msg.chat.type !== 'private' || typeof msg.text !== 'string') return; // ignore groups and non-text
+  const id = msg.chat.id;
   const now = new Date().toISOString();
-  if (ev.type === 'unfollow') return saveUser(env, id, null); // blocked the bot: delete settings
-  let result;
-  if (ev.type === 'follow') result = onFollow(now);
-  else if (ev.type === 'message' && ev.message.type === 'text') {
-    const user = await getUser(env, id);
-    const needsData = user?.step === 'done';
-    result = onText(user, ev.message.text, { now, data: needsData ? await loadData() : null });
-  } else return;
+  const user = await getUser(env, id);
+  const result = !user && /^\/start\b/.test(msg.text)
+    ? onFollow(now)
+    : onText(user, msg.text, { now, data: user?.step === 'done' ? await loadData() : null });
   await saveUser(env, id, result.user);
-  if (ev.replyToken && result.messages.length) await line(env, 'reply', { replyToken: ev.replyToken, messages: result.messages.slice(0, 5) });
+  await sendAll(env, id, result.messages);
 }
 
 async function runReports(env) {
@@ -65,7 +105,7 @@ async function runReports(env) {
   } while (cursor);
   const sends = scheduled(users.filter(([, u]) => u), data, new Date().toISOString());
   for (const s of sends) {
-    if (await line(env, 'push', { to: s.id, messages: s.messages.slice(0, 5) })) await saveUser(env, s.id, s.user);
+    if (await sendAll(env, s.id, s.messages)) await saveUser(env, s.id, s.user);
   }
   console.log(`report run: ${users.length} subscribers, ${sends.length} reports sent`);
 }
@@ -74,11 +114,11 @@ export default {
   async fetch(req, env, ctx) {
     const url = new URL(req.url);
     if (req.method === 'GET' && url.pathname === '/') return new Response('FDA Recall Bot is running.');
-    if (req.method !== 'POST' || url.pathname !== '/line') return new Response('Not found', { status: 404 });
-    const body = await req.text();
-    if (!(await validSignature(body, req.headers.get('x-line-signature'), env.LINE_CHANNEL_SECRET))) return new Response('Bad signature', { status: 401 });
-    const { events = [] } = JSON.parse(body);
-    ctx.waitUntil(Promise.all(events.map((ev) => handle(env, ev).catch((e) => console.error('event failed', e)))));
+    if (req.method !== 'POST' || url.pathname !== '/telegram') return new Response('Not found', { status: 404 });
+    const expected = await webhookSecret(env.TELEGRAM_BOT_TOKEN);
+    if (!sameText(req.headers.get('x-telegram-bot-api-secret-token'), expected)) return new Response('Bad secret', { status: 401 });
+    const update = await req.json();
+    ctx.waitUntil(handle(env, update).catch((e) => console.error('update failed', e)));
     return new Response('OK');
   },
   async scheduled(event, env, ctx) {
