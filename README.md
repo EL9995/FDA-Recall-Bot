@@ -19,15 +19,19 @@ A Telegram bot that tells you about FDA recalls for the things you care about (g
 ## How it works
 
 ```mermaid
-flowchart LR
-  FDA["FDA.gov<br/>recall notices"] -->|every 6 hours| GA["GitHub Actions<br/>fetch_recalls.py"]
-  GA -->|commits| DATA[("recalls.json<br/>+ RSS feeds")]
-  DATA --> PAGES["GitHub Pages<br/>web report + slides"]
-  PAGES -->|recall data| W["Cloudflare Worker"]
-  CRON["Cron, 10 am ET"] --> W
-  W <-->|settings only| KV[("Workers KV")]
+flowchart TD
+  FDA["FDA.gov recall notices"] -->|every 6 hours| GA
+  subgraph GH["GitHub"]
+    GA["Actions: fetch_recalls.py"] -->|commits| DATA[("recalls.json + RSS feeds")]
+    DATA --> PAGES["Pages: web report + slides"]
+  end
+  subgraph CF["Cloudflare"]
+    CRON["Cron, 10 am ET"] --> W["Worker: bot logic"]
+    W <-->|settings only| KV[("Workers KV")]
+  end
+  PAGES -->|recall data| W
   W <-->|webhook + Bot API| TG["Telegram"]
-  TG -->|Open slides| PAGES
+  TG -.->|Open slides, Mini App| PAGES
 ```
 
 1. **Collect:** a Python script (standard library only) runs in GitHub Actions every 6 hours. It reads FDA's recall table and each new notice page for photos, waits 2 seconds between requests as FDA's robots.txt asks, and commits `data/recalls.json` and the RSS feeds. Each record keeps its source link, retrieval time and FDA status; photos are linked from FDA.gov, not copied.
