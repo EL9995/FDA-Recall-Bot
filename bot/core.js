@@ -32,6 +32,11 @@ const WORDS = {
   weekly: ['weekly', 'week', 'every week', '2'],
   done: ['done', 'finish', 'finished', 'ok', 'save'],
   all: ['everything', 'all'],
+  past: ['past reports', 'past', 'history', 'browse', 'archive', 'older'],
+  search: ['search', 'find', 'look up', 'lookup'],
+  byWeek: ['by week', 'weeks'],
+  byMonth: ['by month', 'months'],
+  back: ['back'],
 };
 const is = (t, k) => WORDS[k].includes(t);
 const clean = (s) => String(s || '').toLowerCase().replace(/[✓✔️]/g, '').replace(/^\//, '').replace(/@\w+$/, '').trim(); // "/stop@Bot" -> "stop"
@@ -60,7 +65,7 @@ const groupNames = (user) => GROUPS.filter((g) => user.groups.includes(g.id)).ma
 export const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 const html = (h, buttons, link) => ({ type: 'text', html: h.slice(0, 4096), ...(buttons ? { buttons } : {}), ...(link ? { link } : {}) });
 const text = (t, buttons) => html(esc(t), buttons);
-const MAIN = ['Latest report', 'Settings', 'Help', 'Stop'];
+const MAIN = ['Latest report', 'Past reports', 'Search', 'Settings', 'Help', 'Stop'];
 
 function askFrequency(intro) {
   return text(`${intro ? intro + '\n\n' : ''}How often do you want a recall report?\n\nDaily: only on days with new recalls in your picks.\nWeekly: every Monday, even if it's a quiet week.`, ['Daily', 'Weekly']);
@@ -72,7 +77,9 @@ function askGroups(user) {
 }
 const HELP = `I send short reports of new FDA recalls, with the product photos FDA publishes. Facts come straight from FDA.gov.
 
-Latest report: get one now
+Latest report: the last 7 days
+Past reports: any week or month in the past year
+Search: type a brand or product (or just type it anytime) to find its recalls
 Settings: change how often and which recalls
 Stop: unsubscribe and delete your settings
 
@@ -129,32 +136,89 @@ export function onText(user, input, ctx) {
     const r = buildReport(ctx.data, user, { from: addDays(end, -6), to: end, title: 'FDA recalls, last 7 days' });
     return { user, messages: r.messages };
   }
-  return { user, messages: [text("I didn't catch that. Tap one of these:", MAIN)] };
+  if (is(t, 'past')) return { user, messages: [text('Browse past reports by week or by month?', ['By week', 'By month', 'Back'])] };
+  if (is(t, 'byWeek')) return { user, messages: [text('Which week? Your picks apply.', [...weeks(ctx).map((w) => w.label), 'By month', 'Back'])] };
+  if (is(t, 'byMonth')) return { user, messages: [text('Which month? Your picks apply.', [...months(ctx).map((m) => m.label), 'By week', 'Back'])] };
+  if (is(t, 'back')) return { user, messages: [text('What next?', MAIN)] };
+  if (is(t, 'search')) return { user, messages: [text('Type a brand, product or company, like "Gelatelli" or "peanut butter". I\'ll look through every FDA recall from the past year, in every category.', MAIN)] };
+  const period = [...weeks(ctx), ...months(ctx)].find((x) => clean(x.label) === t);
+  if (period) return { user, messages: buildReport(ctx.data, user, { from: period.from, to: period.to, title: `FDA recalls, ${period.title}`, range: period.range }).messages };
+  // Anything else with letters in it is a search.
+  if (/[a-z]{2}/.test(t)) return { user, messages: buildReport(ctx.data, user, { title: `Recalls matching "${input.trim().slice(0, 60)}"`, search: t }).messages };
+  return { user, messages: [text("I didn't catch that. Tap one of these, or type a brand or product to search:", MAIN)] };
+}
+
+// ---------- past periods (UTC dates; weeks run Monday to Sunday) ----------
+const oldest = (data) => (data.recalls.length ? data.recalls.map((r) => r.fda_publish_date).sort()[0] : day(Date.now()));
+function weeks(ctx) {
+  const today = day(ctx.now);
+  const monday = addDays(today, -((new Date(today + 'T12:00:00Z').getUTCDay() + 6) % 7));
+  const out = [];
+  for (let i = 0; i < 8; i++) {
+    const from = addDays(monday, -7 * i);
+    if (addDays(from, 6) < oldest(ctx.data)) break;
+    out.push({ label: i === 0 ? 'This week' : i === 1 ? 'Last week' : `Week of ${nice(from)}`, title: `week of ${nice(from)}`, from, to: addDays(from, 6), range: 'week' });
+  }
+  return out;
+}
+function months(ctx) {
+  const today = day(ctx.now);
+  const out = [];
+  let y = +today.slice(0, 4), m = +today.slice(5, 7);
+  for (let i = 0; i < 12; i++) {
+    const from = `${y}-${String(m).padStart(2, '0')}-01`;
+    const next = m === 12 ? `${y + 1}-01-01` : `${y}-${String(m + 1).padStart(2, '0')}-01`;
+    const to = addDays(next, -1);
+    if (to < oldest(ctx.data)) break;
+    const label = new Date(from + 'T12:00:00Z').toLocaleDateString('en-US', { timeZone: 'UTC', month: 'long', year: 'numeric' });
+    out.push({ label, title: label, from, to, range: 'month' });
+    if (--m === 0) { m = 12; y--; }
+  }
+  return out;
+}
+
+// ---------- search: every word must appear in the brand, product, company or reason ----------
+export function searchRecalls(data, query) {
+  const words = clean(query).split(/\s+/).filter((w) => w.length > 1);
+  if (!words.length) return [];
+  return data.recalls.filter((r) => {
+    const hay = [r.brands, r.product, r.company, r.reason].join(' ').toLowerCase();
+    return words.every((w) => hay.includes(w));
+  });
 }
 
 // ---------- reports ----------
 const caption = (r) => `${r.brands || r.company}: ${r.product}\n${r.reason}\nFDA · ${nice(r.fda_publish_date)}`.slice(0, 1024);
 
-export function reportLink(user, data, from, to) {
-  const p = new URLSearchParams({ range: from === to ? 'day' : 'week', end: to, slides: '1' });
+export function reportLink(user, data, from, to, range) {
+  const p = new URLSearchParams({ range: range || (from === to ? 'day' : 'week'), end: to, slides: '1' });
   const cats = typesFor(user, data);
   if (cats) p.set('cats', cats.join(','));
   return `${SITE}?${p}`;
 }
 
-// recalls: the list to report; or pick by FDA publish date between from and to.
-export function buildReport(data, user, { from, to, title, recalls }) {
-  const list = (recalls || data.recalls.filter((r) => r.fda_publish_date >= from && r.fda_publish_date <= to)).filter((r) => matches(user, r));
+// recalls: the list to report; or pick by FDA publish date between from and to (range: day, week or month).
+// search: report every recall matching the words instead, in every category, newest first.
+export function buildReport(data, user, { from, to, title, recalls, range, search }) {
+  const list = search
+    ? searchRecalls(data, search)
+    : (recalls || data.recalls.filter((r) => r.fda_publish_date >= from && r.fda_publish_date <= to)).filter((r) => matches(user, r));
   if (recalls && list.length) from = list.map((r) => r.fda_publish_date).sort()[0];
-  const link = reportLink(user, data, from, to);
-  const range = from === to ? nice(to) : `${nice(from)} – ${nice(to)}`;
+  const link = search ? `${SITE}?${new URLSearchParams({ q: search, slides: '1' })}` : reportLink(user, data, from, to, range);
+  const when = search ? 'past year' : from === to ? nice(to) : `${nice(from)} – ${nice(to)}`;
   if (!list.length) {
-    return { count: 0, messages: [text(`${title} (${range})\n\nNo FDA recall notices in your picks (${groupNames(user)}).\n\nWe check FDA.gov every few hours. Not every recall is posted there.`, MAIN)] };
+    const why = search
+      ? 'No FDA recall in the past year matched that. FDA notices use the names printed on the package, so try one distinctive word, like the brand.'
+      : `No FDA recall notices in your picks (${groupNames(user)}).\n\nWe check FDA.gov every few hours. Not every recall is posted there.`;
+    return { count: 0, messages: [text(`${title} (${when})\n\n${why}`, MAIN)] };
   }
   const shown = list.slice(0, 10);
-  const lines = shown.map((r) => `• <a href="${esc(r.url)}">${esc(r.brands || r.company)}</a>: ${esc(r.reason)}`).join('\n');
-  const more = list.length > 10 ? `\n…and ${list.length - 10} more` : '';
-  const summary = html(`<b>${esc(title)}</b> (${esc(range)})\n\n${list.length} recall${list.length === 1 ? '' : 's'} in your picks:\n${lines}${more}\n\nTap a name for the FDA notice. Check the lot codes there before throwing anything out.`, MAIN);
+  const dated = search || (from !== to);
+  const lines = shown.map((r) => `• ${dated ? `${esc(nice(r.fda_publish_date))} · ` : ''}<a href="${esc(r.url)}">${esc(r.brands || r.company)}</a>: ${esc(r.reason)}${r.terminated ? ' <i>(closed by FDA)</i>' : ''}`).join('\n');
+  const more = list.length > 10 ? `\n…and ${list.length - 10} more in the slides` : '';
+  const found = search ? `${list.length} match${list.length === 1 ? '' : 'es'}` : `${list.length} recall${list.length === 1 ? '' : 's'} in your picks`;
+  const closedNote = shown.some((r) => r.terminated) ? '\n\n"Closed by FDA" means the company finished its recall. A product already in your home can still be affected.' : '';
+  const summary = html(`<b>${esc(title)}</b> (${esc(when)})\n\n${found}:\n${lines}${more}\n\nTap a name for the FDA notice. Check the lot codes there before throwing anything out.${closedNote}`, MAIN);
   const items = shown.filter((r) => r.photos && r.photos[0]).map((r) => ({ photo: r.photos[0].src, thumb: r.photos[0].thumb, caption: caption(r) }));
   const messages = [summary];
   if (items.length) messages.push({ type: 'album', items });

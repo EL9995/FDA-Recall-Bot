@@ -30,10 +30,12 @@
     document.head.appendChild(s);
   }
   const state = {
-    range: params.get('range') === 'day' ? 'day' : params.get('range') === 'week' ? 'week' : store.get('range', 'week'),
+    range: ['day', 'week', 'month'].includes(params.get('range')) ? params.get('range') : store.get('range', 'week'),
     end: /^\d{4}-\d{2}-\d{2}$/.test(params.get('end') || '') ? params.get('end') : today,
     // null means every category. A link's ?cats= (e.g. from the LINE bot) wins over the saved picks.
     cats: params.has('cats') ? params.get('cats').split(',').filter(Boolean) : store.get('cats', null),
+    // A search (?q=, e.g. from the Telegram bot) shows every match from the past year, in every category.
+    q: (params.get('q') || '').trim(),
   };
   const lastVisit = store.get('lastVisit', null);
   store.set('lastVisit', new Date().toISOString());
@@ -44,13 +46,22 @@
 
   const isNew = (r) => lastVisit && r.first_seen > lastVisit;
   const picked = (r) => state.cats === null || r.types.some((t) => state.cats.includes(t));
-  const start = () => (state.range === 'day' ? state.end : addDays(state.end, -6));
-  const periodText = () => (state.range === 'day' ? niceLong(state.end) : `${nice(start())} – ${nice(state.end, { month: 'short', day: 'numeric', year: 'numeric' })}`);
+  const monthStart = (d) => d.slice(0, 8) + '01';
+  const monthEnd = (d) => addDays(monthStart(addDays(monthStart(d), 32)), -1);
+  const start = () => (state.range === 'day' ? state.end : state.range === 'month' ? monthStart(state.end) : addDays(state.end, -6));
+  const finish = () => (state.range === 'month' ? monthEnd(state.end) : state.end);
+  const periodText = () => state.q ? `Search: “${state.q}” · past year`
+    : state.range === 'day' ? niceLong(state.end)
+    : state.range === 'month' ? new Date(state.end + 'T12:00:00Z').toLocaleDateString('en-US', { timeZone: 'UTC', month: 'long', year: 'numeric' })
+    : `${nice(start())} – ${nice(state.end, { month: 'short', day: 'numeric', year: 'numeric' })}`;
+  const searchWords = () => state.q.toLowerCase().split(/\s+/).filter((w) => w.length > 1);
+  const found = (r) => { const hay = [r.brands, r.product, r.company, r.reason].join(' ').toLowerCase(); return searchWords().every((w) => hay.includes(w)); };
 
   function syncUrl() {
     const p = new URLSearchParams({ range: state.range });
     if (state.end !== today) p.set('end', state.end);
     if (state.cats !== null) p.set('cats', state.cats.join(','));
+    if (state.q) p.set('q', state.q);
     history.replaceState(null, '', `?${p}`);
   }
 
@@ -79,7 +90,7 @@
         <p class="product">${esc(r.product)}</p>
         <p class="reason">${esc(r.reason)}</p>
         <p class="meta">${esc(r.company)} · posted by FDA ${esc(nice(r.fda_publish_date))}${r.company_announcement_date ? ` · company announced ${esc(nice(r.company_announcement_date))}` : ''} · <a href="${esc(r.url)}" target="_blank" rel="noopener">Read FDA notice</a></p>
-        <div class="tags">${isNew(r) ? '<span class="tag new">New since last visit</span>' : ''}${r.terminated ? '<span class="tag">Terminated</span>' : ''}${r.types.map((t) => `<span class="tag">${esc(t)}</span>`).join('')}</div>
+        <div class="tags">${isNew(r) ? '<span class="tag new">New since last visit</span>' : ''}${r.terminated ? '<span class="tag">Closed by FDA</span>' : ''}${r.types.map((t) => `<span class="tag">${esc(t)}</span>`).join('')}</div>
       </div>
     </article>`;
   }
@@ -87,14 +98,15 @@
   function render() {
     document.querySelectorAll('[data-range]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.range === state.range)));
     $('#period-label').textContent = periodText();
-    $('#next').disabled = state.end >= today;
+    $('#next').disabled = !!state.q || finish() >= today;
     const oldest = data.recalls.length ? data.recalls[data.recalls.length - 1].fda_publish_date : today;
-    $('#prev').disabled = start() <= oldest;
+    $('#prev').disabled = !!state.q || start() <= oldest;
 
-    const from = start();
-    shown = data.recalls.filter((r) => r.fda_publish_date >= from && r.fda_publish_date <= state.end && picked(r));
-    const hiddenCount = data.recalls.filter((r) => r.fda_publish_date >= from && r.fda_publish_date <= state.end && !picked(r)).length;
-    const word = state.range === 'day' ? 'on this day' : 'this week';
+    const from = start(), to = finish();
+    const inPeriod = (r) => r.fda_publish_date >= from && r.fda_publish_date <= to;
+    shown = state.q ? data.recalls.filter(found) : data.recalls.filter((r) => inPeriod(r) && picked(r));
+    const hiddenCount = state.q ? 0 : data.recalls.filter((r) => inPeriod(r) && !picked(r)).length;
+    const word = state.q ? 'match this search' : state.range === 'day' ? 'on this day' : state.range === 'month' ? 'this month' : 'this week';
     const newCount = shown.filter(isNew).length;
 
     $('#summary').innerHTML = `<p>${shown.length} FDA recall notice${shown.length === 1 ? '' : 's'} ${word}${newCount ? ` · ${newCount} new since your last visit` : ''}${hiddenCount ? ` <span class="empty">(${hiddenCount} more outside your categories)</span>` : ''}</p>
@@ -103,7 +115,7 @@
 
     $('#list').innerHTML = shown.length
       ? `<div class="card list-card">${shown.map(itemHTML).join('')}</div>`
-      : `<div class="card empty">No FDA recall notices posted ${state.range === 'day' ? 'on this day' : 'in these 7 days'}${state.cats !== null ? ' in your categories' : ''}. FDA usually posts on weekdays.</div>`;
+      : `<div class="card empty">${state.q ? 'No FDA recall in the past year matched this search. Try one distinctive word, like the brand.' : `No FDA recall notices posted ${state.range === 'day' ? 'on this day' : state.range === 'month' ? 'this month' : 'in these 7 days'}${state.cats !== null ? ' in your categories' : ''}. FDA usually posts on weekdays.`}</div>`;
 
     const feedTypes = state.cats === null ? [] : state.cats;
     $('#feeds').innerHTML = [`<a href="feeds/all.xml">All recalls</a>`, ...feedTypes.map((t) => `<a href="feeds/${slug(t)}.xml">${esc(t)}</a>`)].join('')
@@ -129,9 +141,10 @@
 
   function slideHTML(s) {
     if (s === 'intro') {
-      const cats = state.cats === null ? 'All categories' : state.cats.join(', ');
+      const cats = state.q || state.cats === null ? 'All categories' : state.cats.join(', ');
+      const kind = state.q ? 'search' : { day: 'daily', week: 'weekly', month: 'monthly' }[state.range];
       return `<div class="slide text"><div>
-        <p class="eyebrow">FDA recall report · ${state.range === 'day' ? 'daily' : 'weekly'}</p>
+        <p class="eyebrow">FDA recall report · ${kind}</p>
         <h2>${esc(periodText())}</h2>
         <p>${shown.length} recall notice${shown.length === 1 ? '' : 's'} posted by FDA.</p>
         <p>${esc(cats)}</p>
@@ -156,7 +169,7 @@
       : '<div class="nophoto">FDA did not publish a photo with this notice.</div>';
     return `<div class="slide${photos.length ? '' : ' no-photo'}">${photo}
       <div class="facts">
-        <p class="eyebrow">${esc(nice(r.fda_publish_date, { month: 'long', day: 'numeric', year: 'numeric' }))}${isNew(r) ? ' · new' : ''}</p>
+        <p class="eyebrow">${esc(nice(r.fda_publish_date, { month: 'long', day: 'numeric', year: 'numeric' }))}${isNew(r) ? ' · new' : ''}${r.terminated ? ' · closed by FDA' : ''}</p>
         <h2>${esc(r.brands || r.company)}</h2>
         <p class="product">${esc(r.product)}</p>
         <p class="reason">${esc(r.reason)}</p>
@@ -206,9 +219,9 @@
   });
 
   // ---- Controls ----
-  document.querySelectorAll('[data-range]').forEach((b) => b.addEventListener('click', () => { state.range = b.dataset.range; store.set('range', state.range); render(); }));
-  $('#prev').addEventListener('click', () => { state.end = addDays(state.end, state.range === 'day' ? -1 : -7); render(); });
-  $('#next').addEventListener('click', () => { const e = addDays(state.end, state.range === 'day' ? 1 : 7); state.end = e > today ? today : e; render(); });
+  document.querySelectorAll('[data-range]').forEach((b) => b.addEventListener('click', () => { state.q = ''; state.range = b.dataset.range; store.set('range', state.range); render(); }));
+  $('#prev').addEventListener('click', () => { state.end = state.range === 'month' ? addDays(start(), -1) : addDays(state.end, state.range === 'day' ? -1 : -7); render(); });
+  $('#next').addEventListener('click', () => { const e = state.range === 'month' ? monthEnd(addDays(finish(), 1)) : addDays(state.end, state.range === 'day' ? 1 : 7); state.end = e > today ? today : e; render(); });
   $('#cats-list').addEventListener('change', () => setCats([...document.querySelectorAll('#cats-list input:checked')].map((i) => i.value)));
   document.querySelectorAll('[data-preset]').forEach((b) => b.addEventListener('click', () => {
     const p = b.dataset.preset;
