@@ -85,6 +85,7 @@ function render(messages, from = 'bot') {
     if (m.type === 'text') {
       add(`<div class="msg ${from}">${m.html.replace(/<a /g, '<a target="_blank" rel="noopener" ')}</div>`);
       if (m.link) add(`<a class="inline" href="${esc(m.link.url)}" target="_blank" rel="noopener">${esc(m.link.label)} ↗</a>`);
+      if (m.buttons) $('#t').placeholder = m.placeholder || 'Type a message';
       if (m.buttons) $('#quick').innerHTML = m.buttons.map((l) => `<button type="button" data-t="${esc(l)}">${esc(l)}</button>`).join('');
     }
     if (m.type === 'album') {

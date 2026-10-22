@@ -3,7 +3,7 @@
 // storage, Telegram's API and the recall data, so this file behaves the same in both.
 //
 // Messages are plain objects the Worker turns into Telegram calls:
-//   { type: 'text', html, buttons?: [label], link?: { label, url, app? } }   buttons = reply keyboard, link = inline button
+//   { type: 'text', html, buttons?: [label], placeholder?, link?: { label, url, app? } }   buttons = reply keyboard, link = inline button
 //                                                                     (app: opens the page inside Telegram as a Mini App)
 //   { type: 'album', items: [{ photo, thumb, caption }] }              2-10 photos, or 1 sent as a single photo
 //
@@ -63,7 +63,9 @@ const groupNames = (user) => GROUPS.filter((g) => user.groups.includes(g.id)).ma
 
 // ---------- message helpers ----------
 export const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
-const html = (h, buttons, link) => ({ type: 'text', html: h.slice(0, 4096), ...(buttons ? { buttons } : {}), ...(link ? { link } : {}) });
+// With the main menu showing, the message box hints that typing anything searches.
+const SEARCH_HINT = 'Type a food or brand to check for recalls';
+const html = (h, buttons, link) => ({ type: 'text', html: h.slice(0, 4096), ...(buttons ? { buttons } : {}), ...(buttons === MAIN ? { placeholder: SEARCH_HINT } : {}), ...(link ? { link } : {}) });
 const text = (t, buttons) => html(esc(t), buttons);
 const MAIN = ['Latest report', 'Past reports', 'Search', 'Settings', 'Help', 'Stop'];
 
@@ -77,9 +79,10 @@ function askGroups(user) {
 }
 const HELP = `I send short reports of new FDA recalls, with the product photos FDA publishes. Facts come straight from FDA.gov.
 
+Type any food or brand (like "broccoli") to see its recalls from the past year.
+
 Latest report: the last 7 days
 Past reports: any week or month in the past year
-Search: type a brand or product (or just type it anytime) to find its recalls
 Settings: change how often and which recalls
 Stop: unsubscribe and delete your settings
 
@@ -119,7 +122,7 @@ export function onText(user, input, ctx) {
       if (!user.groups.length) return { user, messages: [askGroups(user)] };
       const u = { ...user, step: 'done', lastSent: user.lastSent || ctx.now };
       const when = u.freq === 'daily' ? 'a report on days with new recalls in your picks' : 'a report every Monday';
-      return { user: u, messages: [text(`All set. You'll get ${when}.\n\nYour picks: ${groupNames(u)}.\n\nWant this week's recalls now?`, MAIN)] };
+      return { user: u, messages: [text(`All set. You'll get ${when}.\n\nYour picks: ${groupNames(u)}.\n\nTip: type any food or brand, like "broccoli" or "Gelatelli", to see its FDA recalls from the past year.\n\nWant this week's recalls now?`, MAIN)] };
     }
     const g = GROUPS.find((x) => clean(x.label) === t);
     if (g) {

@@ -52,4 +52,5 @@ jobs:
           api() { curl -sS --fail-with-body "https://api.telegram.org/bot$TG/$1" -H 'Content-Type: application/json' -d "$2"; echo; }
           api setWebhook "{\"url\":\"${URL%/}/telegram\",\"secret_token\":\"$SECRET\",\"allowed_updates\":[\"message\",\"my_chat_member\"],\"drop_pending_updates\":true}"
           api setMyCommands '{"commands":[{"command":"start","description":"Sign up or change settings"},{"command":"report","description":"Latest report"},{"command":"help","description":"What I do"},{"command":"stop","description":"Unsubscribe and delete your settings"}]}'
+          api setMyShortDescription '{"short_description":"FDA recall reports, daily or weekly. Type any food or brand to check it for recalls."}'
           api setMyDescription '{"description":"Daily or weekly reports of new FDA recalls, with FDA product photos. Pick groceries, pet food, supplements, baby food, cosmetics, or drugs and devices. Facts straight from FDA.gov."}'
