@@ -2,7 +2,7 @@
 
 A Telegram bot that sends you a daily or weekly report of new FDA recalls, with FDA's product photos, for the things you care about: groceries, pet food, supplements, baby food, cosmetics, or drugs and devices. A scheduled job collects the recalls from FDA.gov every 6 hours, and a free Cloudflare Worker sends the reports. Official public data only: every record keeps its source, link and retrieval time.
 
-**Try it:** [web report](https://el9995.github.io/FDA-Recall-Bot/) · [bot simulator](https://el9995.github.io/FDA-Recall-Bot/bot/sim.html) (the full conversation in your browser, no Telegram account needed)
+**Try it:** [open the bot in Telegram](https://t.me/FDA_Recall_Bot) · [web report](https://el9995.github.io/FDA-Recall-Bot/) · [bot simulator](https://el9995.github.io/FDA-Recall-Bot/bot/sim.html) (the full conversation in your browser, no Telegram account needed)
 
 ## What's here
 
