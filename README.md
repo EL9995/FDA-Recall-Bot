@@ -4,13 +4,13 @@ A Telegram bot that tells you about FDA recalls for the things you care about (g
 
 **Try it:** [open the bot in Telegram](https://t.me/FDA_Recall_Bot) · [web report](https://el9995.github.io/FDA-Recall-Bot/) · [bot simulator](https://el9995.github.io/FDA-Recall-Bot/bot/sim.html) (the full conversation in your browser, no Telegram needed)
 
-| Welcome report | Search | Slides | Full-screen photo |
+| First report | Search | Slides | Full-screen photo |
 |---|---|---|---|
 | ![Signup ends with a report of the past 30 days in your picks](docs/images/bot-welcome.png) | ![Typing "broccoli" finds its recalls from the past year](docs/images/bot-search.png) | ![Each recall as a photo-first slide, opened inside Telegram](docs/images/slide.png) | ![Tap a photo to read the lot code](docs/images/slide-fullscreen.png) |
 
 ## What it does
 
-- **Signup in three taps:** pick categories, get a welcome report of the past 30 days, then choose **New recalls only** (a message only when FDA posts something new in your picks, checked every morning) or **Weekly summary** (every Monday).
+- **Signup in three taps:** pick categories, choose **New recalls only** (a message only when FDA posts something new in your picks, checked every morning) or **Weekly summary** (every Monday), and get a first report of the past 30 days right away.
 - **Short reports:** every recall linked to its FDA notice, an album of FDA's product photos, and an **Open slides** button that opens the full deck inside Telegram as a Mini App.
 - **Photo first:** people recognize the package before they read the reason, so each slide leads with the photo. Tap it for full screen and swipe to the next photo, which is often the lot code.
 - **Past reports and search:** any of the last 8 weeks or 12 months, or type any food or brand to search every recall from the past year. Recalls FDA has closed are marked "closed by FDA", since a product already at home can still be affected.

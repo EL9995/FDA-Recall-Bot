@@ -93,7 +93,7 @@ Always check the lot codes and dates on the FDA notice before throwing anything 
 
 // ---------- conversation ----------
 // Returns { user, messages }: user === null means delete the record.
-// Signup: pick categories -> a welcome report of the past 30 days -> New recalls only or Weekly summary.
+// Signup: pick categories -> New recalls only or Weekly summary -> All set, then a welcome report of the past 30 days.
 // Settings later runs the same steps without the welcome report.
 export function onFollow(now) {
   const user = { step: 'groups', freq: null, groups: [], created: now, lastSent: null };
@@ -123,12 +123,8 @@ export function onText(user, input, ctx) {
     }
     if (is(t, 'done')) {
       if (!user.groups.length) return { user, messages: [askGroups(user)] };
-      const u = { ...user, step: 'freq', welcomed: true };
-      if (user.welcomed) return { user: u, messages: [askFrequency(`Your picks: ${groupNames(u)}.`)] };
-      // First signup: show what they'd have missed, then ask how to keep them posted.
-      const end = day(ctx.now);
-      const welcome = buildReport(ctx.data, u, { from: addDays(end, -29), to: end, title: 'Welcome! FDA recalls in your picks, past 30 days' });
-      return { user: u, messages: [...welcome.messages, askFrequency(null)] };
+      const u = { ...user, step: 'freq' };
+      return { user: u, messages: [askFrequency(`Your picks: ${groupNames(u)}.`)] };
     }
     const g = GROUPS.find((x) => clean(x.label) === t);
     if (g) {
@@ -143,8 +139,13 @@ export function onText(user, input, ctx) {
     if (!user.groups.length) { const u = { ...user, step: 'groups' }; return { user: u, messages: [askGroups(u)] }; }
     if (is(t, 'daily') || is(t, 'weekly')) {
       // New recalls count from now on (signup), so nobody gets the welcome report again.
-      const u = { ...user, freq: is(t, 'daily') ? 'daily' : 'weekly', step: 'done', lastSent: user.lastSent || ctx.now };
-      return { user: u, messages: [text(`All set. You'll get ${howOften(u)}.\n\nYour picks: ${groupNames(u)}.\n\nTip: type any food or brand, like "broccoli" or "Gelatelli", to see its FDA recalls from the past year.`, MAIN)] };
+      const u = { ...user, freq: is(t, 'daily') ? 'daily' : 'weekly', step: 'done', lastSent: user.lastSent || ctx.now, welcomed: true };
+      const allSet = `All set. You'll get ${howOften(u)}.\n\nYour picks: ${groupNames(u)}.\n\nTip: type any food or brand, like "broccoli" or "Gelatelli", to see its FDA recalls from the past year.`;
+      if (user.welcomed) return { user: u, messages: [text(allSet, MAIN)] };
+      // First signup (or /start): once they're set up, show what FDA recalled in their picks over the past 30 days.
+      const end = day(ctx.now);
+      const welcome = buildReport(ctx.data, u, { from: addDays(end, -29), to: end, title: 'Your first report: FDA recalls in your picks, past 30 days' });
+      return { user: u, messages: [text(`${allSet}\n\nHere's your first report:`, MAIN), ...welcome.messages] };
     }
     return { user, messages: [askFrequency('Tap one of these:')] };
   }

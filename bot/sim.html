@@ -97,7 +97,7 @@ function render(messages, from = 'bot') {
 async function say(t) {
   if (!t.trim()) return;
   render([{ type: 'text', html: esc(t) }], 'me');
-  const ready = user && user.step !== 'freq';
+  const ready = !!user;
   const r = onText(user, t, { now: new Date().toISOString(), data: ready ? await getData() : null });
   user = r.user; show(user); render(r.messages);
 }
