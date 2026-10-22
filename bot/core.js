@@ -3,7 +3,8 @@
 // storage, Telegram's API and the recall data, so this file behaves the same in both.
 //
 // Messages are plain objects the Worker turns into Telegram calls:
-//   { type: 'text', html, buttons?: [label], link?: { label, url } }   buttons = reply keyboard, link = inline button
+//   { type: 'text', html, buttons?: [label], link?: { label, url, app? } }   buttons = reply keyboard, link = inline button
+//                                                                     (app: opens the page inside Telegram as a Mini App)
 //   { type: 'album', items: [{ photo, thumb, caption }] }              2-10 photos, or 1 sent as a single photo
 //
 // Report facts always come straight from data/recalls.json (FDA.gov). Nothing here writes or rewords them.
@@ -157,7 +158,7 @@ export function buildReport(data, user, { from, to, title, recalls }) {
   const items = shown.filter((r) => r.photos && r.photos[0]).map((r) => ({ photo: r.photos[0].src, thumb: r.photos[0].thumb, caption: caption(r) }));
   const messages = [summary];
   if (items.length) messages.push({ type: 'album', items });
-  messages.push(html('Every recall with all its photos:', null, { label: 'Open the full report', url: link }));
+  messages.push(html('Swipe through every recall and all its photos:', null, { label: 'Open slides', url: `${link}&tg=1`, app: true }));
   return { count: list.length, messages };
 }
 

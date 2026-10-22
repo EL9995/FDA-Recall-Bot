@@ -19,6 +19,16 @@
   const NOT_FOOD = new Set(['Drugs', 'Medical Devices', 'Cosmetics', 'Animal & Veterinary', 'Pet Food', 'Animal Feed', 'Tobacco', 'Biologics']);
 
   const params = new URLSearchParams(location.search);
+  // Opened as a Telegram Mini App (the bot's "Open slides" button adds tg=1): fill the screen,
+  // and leaving the deck closes the Mini App instead of showing the list page.
+  const tg = params.get('tg') === '1';
+  const webApp = () => window.Telegram && window.Telegram.WebApp;
+  if (tg) {
+    const s = document.createElement('script');
+    s.src = 'https://telegram.org/js/telegram-web-app.js';
+    s.onload = () => { webApp().ready(); webApp().expand(); };
+    document.head.appendChild(s);
+  }
   const state = {
     range: params.get('range') === 'day' ? 'day' : params.get('range') === 'week' ? 'week' : store.get('range', 'week'),
     end: /^\d{4}-\d{2}-\d{2}$/.test(params.get('end') || '') ? params.get('end') : today,
@@ -175,7 +185,7 @@
   }
 
   function openDeck(i) { slide = i; $('#deck').hidden = false; document.body.style.overflow = 'hidden'; showSlide(); $('#deck-next').focus(); }
-  function closeDeck() { $('#deck').hidden = true; document.body.style.overflow = ''; $('#play')?.focus(); }
+  function closeDeck() { if (tg && webApp()) return webApp().close(); $('#deck').hidden = true; document.body.style.overflow = ''; $('#play')?.focus(); }
   function step(n) { if (n > 0 && slide === deckSlides().length - 1) return closeDeck(); slide += n; showSlide(); }
 
   $('#deck-close').addEventListener('click', closeDeck);

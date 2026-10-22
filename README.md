@@ -6,7 +6,7 @@ A Telegram bot that sends you a daily or weekly report of new FDA recalls, with 
 
 ## What's here
 
-- **Telegram bot (`bot/`):** open the bot, pick Daily or Weekly and which recalls, and get a short report: every recall linked to its FDA notice, an album of FDA's product photos, and a link to the full report. Runs free on Cloudflare Workers. Setup steps in `bot/SETUP.md`.
+- **Telegram bot (`bot/`):** open the bot, pick Daily or Weekly and which recalls, and get a short report: every recall linked to its FDA notice, an album of FDA's product photos, and a slide deck of every recall that opens inside Telegram. Runs free on Cloudflare Workers. Setup steps in `bot/SETUP.md`.
 - **Recall report (home page):** daily or weekly report of new FDA recall notices, with the product photos FDA publishes. Visitors pick the FDA product types they care about (saved in their browser) and read it as a list or as slides. One RSS feed per product type in `feeds/`.
 - **Barcode check (`check.html`, test):** type or scan a barcode to see the product from USDA FoodData Central and any matching FDA recall from openFDA.
 

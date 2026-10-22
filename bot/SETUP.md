@@ -53,6 +53,6 @@ Then open `https://t.me/<your bot's username>` and tap **Start**.
 - **Start:** asks Daily or Weekly, then which recalls (Groceries, Pet food, Supplements, Baby food, Cosmetics, Drugs & devices, or Everything).
 - **Weekly:** every Monday around 10 am Eastern (9 am in winter; the schedule runs on UTC), the previous Monday–Sunday, even if quiet.
 - **Daily:** around 10 am Eastern, only when FDA posted something new in their picks.
-- **Each report** is three messages, however many recalls there are: a summary with every recall linked to its FDA notice, an album of up to 10 product photos, and a button to the full report with every photo.
+- **Each report** is three messages, however many recalls there are: a summary with every recall linked to its FDA notice, an album of up to 10 product photos, and an **Open slides** button that opens the full slide deck inside Telegram (a Mini App), with every recall and photo.
 - **Any time:** the menu buttons, or /report, /start (settings), /help, /stop.
 - Report facts come straight from FDA.gov data. The bot never writes or rewords them.

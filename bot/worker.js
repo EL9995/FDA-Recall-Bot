@@ -43,7 +43,8 @@ function keyboard(labels) {
 // Sends one core.js message. Returns false if Telegram refused it.
 async function send(env, chat_id, m) {
   if (m.type === 'text') {
-    const reply_markup = m.link ? { inline_keyboard: [[{ text: m.link.label, url: m.link.url }]] } : m.buttons ? keyboard(m.buttons) : undefined;
+    const button = m.link && (m.link.app ? { text: m.link.label, web_app: { url: m.link.url } } : { text: m.link.label, url: m.link.url });
+    const reply_markup = button ? { inline_keyboard: [[button]] } : m.buttons ? keyboard(m.buttons) : undefined;
     return tg(env, 'sendMessage', { chat_id, text: m.html, parse_mode: 'HTML', link_preview_options: { is_disabled: true }, reply_markup });
   }
   if (m.type === 'album') {
