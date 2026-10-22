@@ -82,7 +82,7 @@
 
   function itemHTML(r) {
     const p = photoOf(r);
-    const img = p ? `<img class="thumb" loading="lazy" src="${esc(p.thumb)}" alt="${esc(p.alt)}">` : '<div class="thumb none">No photo from FDA</div>';
+    const img = p ? `<img class="thumb" loading="lazy" src="${esc(p.thumb)}" alt="${esc(p.alt)}" data-id="${esc(r.id)}" title="Tap to enlarge">` : '<div class="thumb none">No photo from FDA</div>';
     return `<article class="item">
       ${img}
       <div>
@@ -162,7 +162,7 @@
     const photos = r.photos || [];
     const photo = photos.length
       ? `<div class="photo">
-          <img class="main" src="${esc(photos[0].src)}" alt="${esc(photos[0].alt)}">
+          <button type="button" class="main-wrap" aria-label="Enlarge photo"><img class="main" src="${esc(photos[0].src)}" alt="${esc(photos[0].alt)}"><span class="zoom-hint">⤢ Tap to enlarge</span></button>
           ${photos.length > 1 ? `<div class="strip">${photos.map((p, i) => `<img src="${esc(p.thumb)}" alt="${esc(p.alt)}" data-i="${i}" aria-current="${i === 0}">`).join('')}</div>` : ''}
           <p class="credit">Photo published by FDA with the notice</p>
         </div>`
@@ -171,8 +171,8 @@
       <div class="facts">
         <p class="eyebrow">${esc(nice(r.fda_publish_date, { month: 'long', day: 'numeric', year: 'numeric' }))}${isNew(r) ? ' · new' : ''}${r.terminated ? ' · closed by FDA' : ''}</p>
         <h2>${esc(r.brands || r.company)}</h2>
-        <p class="product">${esc(r.product)}</p>
         <p class="reason">${esc(r.reason)}</p>
+        <p class="product">${esc(r.product)}</p>
         <dl>
           <dt>Company</dt><dd>${esc(r.company)}</dd>
           ${r.company_announcement_date ? `<dt>Announced</dt><dd>${esc(nice(r.company_announcement_date, { month: 'short', day: 'numeric', year: 'numeric' }))}</dd>` : ''}
@@ -190,12 +190,41 @@
     $('#deck-count').textContent = `${slide + 1} / ${all.length}`;
     $('#deck-prev').disabled = slide === 0;
     $('#deck-next').textContent = slide === all.length - 1 ? 'Done' : 'Next ›';
+    photoIdx = 0;
+    $('#deck-stage .main-wrap')?.addEventListener('click', () => openLightbox(all[slide].photos, photoIdx));
     $('#deck-stage').querySelectorAll('.strip img').forEach((t) => t.addEventListener('click', () => {
+      photoIdx = +t.dataset.i;
       const p = all[slide].photos[t.dataset.i];
       const main = $('#deck-stage .main'); main.src = p.src; main.alt = p.alt;
       $('#deck-stage').querySelectorAll('.strip img').forEach((x) => x.setAttribute('aria-current', String(x === t)));
     }));
   }
+
+  // ---- Full-screen photo viewer: tap a photo to open, swipe (or arrow keys) for the recall's other photos, tap to close ----
+  let photoIdx = 0;
+  let lb = null;
+  function showLightbox() {
+    const p = lb.photos[lb.i], n = lb.photos.length;
+    $('#lb-img').src = p.src; $('#lb-img').alt = p.alt || '';
+    $('#lb-count').textContent = n > 1 ? `${lb.i + 1} / ${n}` : '';
+    $('#lb-hint').textContent = n > 1 ? 'Swipe for more · tap to close' : 'Tap to close';
+  }
+  function openLightbox(photos, i = 0) { if (!photos || !photos.length) return; lb = { photos, i }; showLightbox(); $('#lightbox').hidden = false; }
+  function closeLightbox() { lb = null; $('#lightbox').hidden = true; $('#lb-img').removeAttribute('src'); }
+  function lightboxStep(n) { lb.i = (lb.i + n + lb.photos.length) % lb.photos.length; showLightbox(); }
+  let lbTouch = null;
+  $('#lightbox').addEventListener('touchstart', (e) => { lbTouch = e.touches[0].clientX; }, { passive: true });
+  $('#lightbox').addEventListener('touchend', (e) => {
+    if (lbTouch === null || !lb) return;
+    const dx = e.changedTouches[0].clientX - lbTouch; lbTouch = null;
+    e.preventDefault(); // no click after a touch
+    if (Math.abs(dx) > 40 && lb.photos.length > 1) lightboxStep(dx < 0 ? 1 : -1); else closeLightbox();
+  });
+  $('#lightbox').addEventListener('click', closeLightbox);
+  $('#list').addEventListener('click', (e) => {
+    const t = e.target.closest('img.thumb[data-id]');
+    if (t) openLightbox((shown.find((r) => r.id === t.dataset.id) || {}).photos);
+  });
 
   function openDeck(i) { slide = i; $('#deck').hidden = false; document.body.style.overflow = 'hidden'; showSlide(); $('#deck-next').focus(); }
   function closeDeck() { if (tg && webApp()) return webApp().close(); $('#deck').hidden = true; document.body.style.overflow = ''; $('#play')?.focus(); }
@@ -205,6 +234,12 @@
   $('#deck-prev').addEventListener('click', () => step(-1));
   $('#deck-next').addEventListener('click', () => step(1));
   document.addEventListener('keydown', (e) => {
+    if (lb) {
+      if (e.key === 'ArrowRight') lightboxStep(1);
+      else if (e.key === 'ArrowLeft') lightboxStep(-1);
+      else if (e.key === 'Escape') closeLightbox();
+      return;
+    }
     if ($('#deck').hidden) return;
     if (e.key === 'ArrowRight') step(1);
     else if (e.key === 'ArrowLeft') step(-1);
