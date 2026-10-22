@@ -239,7 +239,8 @@
       const when = new Date(d.generated);
       $('#checked').textContent = `FDA recall report · last checked ${when.toLocaleString('en-US', { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' })}`;
       renderCats(); render(); renderMajor();
-      if (params.get('slides') === '1' && shown.length) openDeck(0);
+      // From Telegram, always open the slides (an empty period gets its "0 recalls" intro slide, not the list page).
+      if (params.get('slides') === '1' && (shown.length || tg)) openDeck(0);
     })
     .catch(() => { $('#list').innerHTML = '<div class="card">Couldn\'t load the recall data. Try again shortly, or see <a href="https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts">FDA.gov</a>.</div>'; });
 })();
