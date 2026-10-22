@@ -1,13 +1,13 @@
-# Food Trace Atlas
+# FDA Recall Bot
 
-Where did my food come from, and is it safe right now? A free, static site that answers with official public data only: every claim sourced and dated, nothing pay-to-play.
+A LINE bot that sends you a daily or weekly report of new FDA recalls, with FDA's product photos, for the things you care about: groceries, pet food, supplements, baby food, cosmetics, or drugs and devices. A scheduled job collects the recalls from FDA.gov every 6 hours, and a free Cloudflare Worker sends the reports. Official public data only: every record keeps its source, link and retrieval time.
 
-Live: https://el9995.github.io/Food-Trace-Atlas/
+**Try it:** [web report](https://el9995.github.io/FDA-Recall-Bot/) · [bot simulator](https://el9995.github.io/FDA-Recall-Bot/bot/sim.html) (the full conversation in your browser, no LINE account needed)
 
-## Now
+## What's here
 
+- **LINE bot (`bot/`):** friends and family add a LINE account, pick Daily or Weekly and which recalls, and get swipeable report cards with FDA's photos. Runs free on Cloudflare Workers. Setup steps in `bot/SETUP.md`.
 - **Recall report (home page):** daily or weekly report of new FDA recall notices, with the product photos FDA publishes. Visitors pick the FDA product types they care about (saved in their browser) and read it as a list or as slides. One RSS feed per product type in `feeds/`.
-- **LINE bot (`bot/`):** friends and family add a LINE account, pick Daily or Weekly and which recalls, and get swipeable report cards with FDA's photos. Runs free on Cloudflare Workers. Try the simulator at `bot/sim.html`; setup steps in `bot/SETUP.md`.
 - **Barcode check (`check.html`, test):** type or scan a barcode to see the product from USDA FoodData Central and any matching FDA recall from openFDA.
 
 ## How the data updates
@@ -32,3 +32,7 @@ Recall notices write barcodes in many formats, so barcode matching can miss reca
 4. Pantry recall alerts, shared with the Neuro Stack Atlas supplement stack alerts
 
 No build step. Open `index.html` through any local web server to preview.
+
+## How it was made
+
+This project was **built with AI under my direction.** Claude (Anthropic's AI coding assistant) wrote the code. I set the product direction, chose the data sources, and made the privacy and accuracy calls: the bot stores only a LINE user ID and settings, and never rewords FDA's facts.

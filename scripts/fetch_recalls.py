@@ -22,7 +22,7 @@ ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data" / "recalls.json"
 NOTICES = ROOT / "data" / "notices.json"  # announcement text per notice, for the code check
 FEEDS = ROOT / "feeds"
-SITE = "https://el9995.github.io/Food-Trace-Atlas/"
+SITE = "https://el9995.github.io/FDA-Recall-Bot/"
 
 FDA = "https://www.fda.gov"
 TABLE = FDA + "/datatables/views/ajax?view_name=recall_solr_index&view_display_id=recall_datatable_block_1&start=0&length={n}&draw=1"
@@ -32,7 +32,7 @@ MAJOR_PAGE = FDA + "/safety/recalls-market-withdrawals-safety-alerts/major-produ
 KEEP_DAYS = 365        # keep (and backfill) notices this far back
 MAX_DETAIL_FETCHES = 120  # notice pages per run (2 s each); the rest are filled on later runs
 REFRESH_DAYS = 30      # companies often expand recalls: re-read notices this new once a day
-UA = "FoodTraceAtlas/0.1 (+https://github.com/EL9995/Food-Trace-Atlas)"
+UA = "FDARecallBot/0.1 (+https://github.com/EL9995/FDA-Recall-Bot)"
 
 _last = 0.0
 
@@ -152,7 +152,7 @@ def rss(title, link, items, path):
     path.write_text(
         '<?xml version="1.0" encoding="utf-8"?>\n<rss version="2.0"><channel>'
         f"<title>{html.escape(title)}</title><link>{html.escape(link)}</link>"
-        "<description>New FDA recall notices, collected from FDA.gov by Food Trace Atlas. Always confirm at FDA.gov.</description>"
+        "<description>New FDA recall notices, collected from FDA.gov by FDA Recall Bot. Always confirm at FDA.gov.</description>"
         f"<lastBuildDate>{format_datetime(datetime.now(timezone.utc))}</lastBuildDate>{body}</channel></rss>\n",
         encoding="utf-8")
 
@@ -244,9 +244,9 @@ def main():
 
     # 4. Feeds: one for everything, one per FDA product type.
     FEEDS.mkdir(exist_ok=True)
-    rss("Food Trace Atlas: all FDA recalls", SITE, recalls, FEEDS / "all.xml")
+    rss("FDA Recall Bot: all FDA recalls", SITE, recalls, FEEDS / "all.xml")
     for t in sorted({t for r in recalls for t in r["types"]}):
-        rss(f"Food Trace Atlas: FDA recalls, {t}", SITE, [r for r in recalls if t in r["types"]], FEEDS / f"{slugify(t)}.xml")
+        rss(f"FDA Recall Bot: FDA recalls, {t}", SITE, [r for r in recalls if t in r["types"]], FEEDS / f"{slugify(t)}.xml")
 
     print(f"{len(recalls)} recalls ({added} new, {fetched} notice pages read), {len(major)} major recalls")
 

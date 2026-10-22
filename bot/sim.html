@@ -45,7 +45,7 @@
 <body>
 <div class="layout">
   <div class="phone">
-    <div class="top">Food Trace Atlas <small>LINE bot · simulator</small></div>
+    <div class="top">FDA Recall Bot <small>LINE bot · simulator</small></div>
     <div class="chat" id="chat"><div class="sys">Tap "Add bot as friend" to start →</div></div>
     <div class="quick" id="quick"></div>
     <form id="f"><input id="t" placeholder="Type a message" autocomplete="off"><button>Send</button></form>
@@ -132,7 +132,7 @@ async function runScheduled(now, label) {
 
 $('#quick').addEventListener('click', (e) => { const b = e.target.closest('button'); if (b) say(b.dataset.t); });
 $('#f').addEventListener('submit', (e) => { e.preventDefault(); const t = $('#t').value; $('#t').value = ''; say(t); });
-$('#follow').addEventListener('click', () => { add('<div class="sys">You added Food Trace Atlas as a friend</div>'); const r = onFollow(new Date().toISOString()); user = r.user; show(user); render(r.messages); });
+$('#follow').addEventListener('click', () => { add('<div class="sys">You added FDA Recall Bot as a friend</div>'); const r = onFollow(new Date().toISOString()); user = r.user; show(user); render(r.messages); });
 $('#monday').addEventListener('click', () => runScheduled(lastMonday(), 'Monday 10 am ET: weekly report run (replaying the most recent Monday)'));
 $('#daily').addEventListener('click', () => {
   // Pretend the last report was 3 days ago so recent recalls count as new.

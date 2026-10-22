@@ -25,7 +25,7 @@ Menus move around, so if a step doesn't match what you see, follow LINE's or Clo
 ### 2. Cloudflare (you do this; it needs your account)
 
 1. Create a free Cloudflare account.
-2. **Storage & Databases → KV → Create** a namespace named `food-trace-subscribers`. Send Claude its **ID** (not a secret) to put in `bot/wrangler.toml`.
+2. **Storage & Databases → KV → Create** a namespace named `fda-recall-subscribers`. Send Claude its **ID** (not a secret) to put in `bot/wrangler.toml`.
 3. **My Profile → API Tokens → Create Token** with the "Edit Cloudflare Workers" template. Copy the token.
 4. Copy your **Account ID** (shown on the Workers & Pages overview).
 
@@ -44,7 +44,7 @@ Never paste these into a chat, a commit or a file.
 
 ### 4. Deploy and connect
 
-1. Once the KV ID is in `bot/wrangler.toml` and pushed, the **Deploy LINE bot** workflow publishes the Worker. Its address looks like `https://food-trace-line-bot.<your-subdomain>.workers.dev`.
+1. Once the KV ID is in `bot/wrangler.toml` and pushed, the **Deploy LINE bot** workflow publishes the Worker. Its address looks like `https://fda-recall-bot.<your-subdomain>.workers.dev`.
 2. In LINE Developers Console → **Messaging API → Webhook URL**, enter that address plus `/line`, turn on **Use webhook**, and press **Verify**.
 3. Share the account's QR code or add-friend link (Messaging API tab) with family and friends.
 

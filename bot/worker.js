@@ -1,4 +1,4 @@
-// Cloudflare Worker for the Food Trace Atlas LINE bot.
+// Cloudflare Worker for FDA Recall Bot on LINE.
 //   POST /line   LINE webhook: follow, unfollow and text messages (replies are free on LINE).
 //   cron         Daily run: pushes reports to subscribers (pushes count toward LINE's monthly quota).
 // Storage: Workers KV, one key per subscriber ("u:<LINE user ID>") holding only their settings.
@@ -73,7 +73,7 @@ async function runReports(env) {
 export default {
   async fetch(req, env, ctx) {
     const url = new URL(req.url);
-    if (req.method === 'GET' && url.pathname === '/') return new Response('Food Trace Atlas LINE bot is running.');
+    if (req.method === 'GET' && url.pathname === '/') return new Response('FDA Recall Bot is running.');
     if (req.method !== 'POST' || url.pathname !== '/line') return new Response('Not found', { status: 404 });
     const body = await req.text();
     if (!(await validSignature(body, req.headers.get('x-line-signature'), env.LINE_CHANNEL_SECRET))) return new Response('Bad signature', { status: 401 });

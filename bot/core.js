@@ -1,10 +1,10 @@
-// Food Trace Atlas LINE bot: conversation, settings and report building.
+// FDA Recall Bot on LINE: conversation, settings and report building.
 // Pure functions only. The Cloudflare Worker (worker.js) and the browser simulator (sim.html) supply
 // storage, LINE's API and the recall data, so this file behaves the same in both.
 //
 // Report facts always come straight from data/recalls.json (FDA.gov). Nothing here writes or rewords them.
 
-export const SITE = 'https://el9995.github.io/Food-Trace-Atlas/';
+export const SITE = 'https://el9995.github.io/FDA-Recall-Bot/';
 
 // Friendly groups people pick from, mapped onto FDA's own product types.
 // "Groceries" is every FDA type not claimed by another group.
@@ -76,7 +76,7 @@ Always check the lot codes and dates on the FDA notice before throwing anything 
 // Returns { user, messages }: user === null means delete the record.
 export function onFollow(now) {
   const user = { step: 'freq', freq: null, groups: [], created: now, lastSent: null };
-  return { user, messages: [askFrequency("Hi! I'm the Food Trace Atlas recall bot. I send short reports of new FDA recalls, with photos, straight from FDA.gov.\n\nI only keep your LINE user ID and the settings you pick here. Send Stop anytime to delete them.")] };
+  return { user, messages: [askFrequency("Hi! I'm FDA Recall Bot. I send short reports of new FDA recalls, with photos, straight from FDA.gov.\n\nI only keep your LINE user ID and the settings you pick here. Send Stop anytime to delete them.")] };
 }
 
 export function onText(user, input, ctx) {
