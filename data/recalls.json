@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-03T13:15:35Z",
+ "generated": "2026-11-03T19:04:38Z",
  "sources": [
   {
    "name": "FDA Recalls, Market Withdrawals, & Safety Alerts",
@@ -12,6 +12,47 @@
  ],
  "note": "Collected from FDA.gov every few hours. Not every recall is posted on FDA.gov (USDA FSIS handles most meat, poultry and egg recalls). Always confirm at FDA.gov.",
  "recalls": [
+  {
+   "id": "snack-right-super-foods-inc-dba-brads-raw-chips-recalls-brads-crunchy-kale-veggie-chips-due",
+   "url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/snack-right-super-foods-inc-dba-brads-raw-chips-recalls-brads-crunchy-kale-veggie-chips-due",
+   "fda_publish_date": "2026-11-03",
+   "brands": "Brad’s",
+   "product": "Crunchy Kale and Veggie Chips Kale",
+   "types": [
+    "Food & Beverages"
+   ],
+   "reason": "Product may contain thallium.",
+   "company": "Snack Right Super Foods dba Brad’s Raw Chips",
+   "terminated": false,
+   "source": "FDA Recalls, Market Withdrawals, & Safety Alerts",
+   "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts",
+   "first_seen": "2026-11-03T19:03:55Z",
+   "retrieved": "2026-11-03T19:04:00Z",
+   "status": "confirmed",
+   "photos": [
+    {
+     "src": "https://www.fda.gov/files/rev_image_2_8.png",
+     "thumb": "https://www.fda.gov/files/styles/recall_image_small/public/rev_image_2_8.png?itok=1OkLZLGK",
+     "alt": "Brad’s Crunchy Kale Cheeze It Up 2 oz bag front packaging"
+    },
+    {
+     "src": "https://www.fda.gov/files/rev_image_3_2.png",
+     "thumb": "https://www.fda.gov/files/styles/recall_image_small/public/rev_image_3_2.png?itok=7v7pP3Pd",
+     "alt": "Brad’s Crunchy Kale Radical Ranch 2 oz bag front packaging"
+    },
+    {
+     "src": "https://www.fda.gov/files/rev_image_4_1.png",
+     "thumb": "https://www.fda.gov/files/styles/recall_image_small/public/rev_image_4_1.png?itok=cXpRVub4",
+     "alt": "Brad’s Veggie Chips Kale 3 oz bag front packaging"
+    },
+    {
+     "src": "https://www.fda.gov/files/rev_image_1_15.png",
+     "thumb": "https://www.fda.gov/files/styles/recall_image_small/public/rev_image_1_15.png?itok=oLp15rgI",
+     "alt": "Brad’s Crunchy Kale Original 2 oz bag front packaging"
+    }
+   ],
+   "company_announcement_date": "2026-11-02"
+  },
   {
    "id": "once-upon-farm-recalls-all-lots-and-varieties-tractor-wheels-organic-toddler-soft-baked-bars-due",
    "url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/once-upon-farm-recalls-all-lots-and-varieties-tractor-wheels-organic-toddler-soft-baked-bars-due",
@@ -79,7 +120,7 @@
    "source": "FDA Recalls, Market Withdrawals, & Safety Alerts",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts",
    "first_seen": "2026-10-30T18:57:17Z",
-   "retrieved": "2026-11-02T19:05:58Z",
+   "retrieved": "2026-11-03T19:04:02Z",
    "status": "confirmed",
    "photos": [
     {
@@ -140,7 +181,7 @@
    "source": "FDA Recalls, Market Withdrawals, & Safety Alerts",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts",
    "first_seen": "2026-10-27T18:54:09Z",
-   "retrieved": "2026-11-02T19:06:00Z",
+   "retrieved": "2026-11-03T19:04:04Z",
    "status": "confirmed",
    "photos": [
     {
@@ -167,7 +208,7 @@
    "source": "FDA Recalls, Market Withdrawals, & Safety Alerts",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts",
    "first_seen": "2026-10-27T18:54:09Z",
-   "retrieved": "2026-11-02T19:06:02Z",
+   "retrieved": "2026-11-03T19:04:06Z",
    "status": "confirmed",
    "photos": [
     {
@@ -11588,7 +11629,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-11-03T13:15:09Z",
+   "retrieved": "2026-11-03T19:04:11Z",
    "status": "confirmed"
   },
   {
@@ -11601,7 +11642,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-11-03T13:15:11Z",
+   "retrieved": "2026-11-03T19:04:13Z",
    "status": "confirmed"
   },
   {
@@ -11614,7 +11655,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-11-03T13:15:13Z",
+   "retrieved": "2026-11-03T19:04:15Z",
    "status": "confirmed"
   },
   {
@@ -11627,7 +11668,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-11-03T13:15:15Z",
+   "retrieved": "2026-11-03T19:04:18Z",
    "status": "confirmed"
   },
   {
@@ -11640,7 +11681,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-11-03T13:15:17Z",
+   "retrieved": "2026-11-03T19:04:20Z",
    "status": "confirmed"
   },
   {
@@ -11653,7 +11694,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-11-03T13:15:20Z",
+   "retrieved": "2026-11-03T19:04:22Z",
    "status": "confirmed"
   },
   {
@@ -11666,7 +11707,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-11-03T13:15:22Z",
+   "retrieved": "2026-11-03T19:04:25Z",
    "status": "confirmed"
   },
   {
@@ -11679,7 +11720,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-11-03T13:15:24Z",
+   "retrieved": "2026-11-03T19:04:27Z",
    "status": "confirmed"
   },
   {
@@ -11692,7 +11733,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-11-03T13:15:26Z",
+   "retrieved": "2026-11-03T19:04:29Z",
    "status": "confirmed"
   },
   {
@@ -11705,7 +11746,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-11-03T13:15:28Z",
+   "retrieved": "2026-11-03T19:04:31Z",
    "status": "confirmed"
   },
   {
@@ -11718,7 +11759,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-11-03T13:15:30Z",
+   "retrieved": "2026-11-03T19:04:34Z",
    "status": "confirmed"
   },
   {
@@ -11731,7 +11772,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-11-03T13:15:33Z",
+   "retrieved": "2026-11-03T19:04:36Z",
    "status": "confirmed"
   },
   {
@@ -11744,7 +11785,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-11-03T13:15:35Z",
+   "retrieved": "2026-11-03T19:04:38Z",
    "status": "confirmed"
   }
  ]
