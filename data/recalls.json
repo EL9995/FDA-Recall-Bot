@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-07T13:02:08Z",
+ "generated": "2026-11-07T21:52:11Z",
  "sources": [
   {
    "name": "FDA Recalls, Market Withdrawals, & Safety Alerts",
@@ -27,7 +27,7 @@
    "source": "FDA Recalls, Market Withdrawals, & Safety Alerts",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts",
    "first_seen": "2026-11-03T19:03:55Z",
-   "retrieved": "2026-11-06T19:25:44Z",
+   "retrieved": "2026-11-07T21:51:35Z",
    "status": "confirmed",
    "photos": [
     {
@@ -121,7 +121,7 @@
    "source": "FDA Recalls, Market Withdrawals, & Safety Alerts",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts",
    "first_seen": "2026-10-30T18:57:17Z",
-   "retrieved": "2026-11-06T19:25:46Z",
+   "retrieved": "2026-11-07T21:51:37Z",
    "status": "confirmed",
    "photos": [
     {
@@ -182,7 +182,7 @@
    "source": "FDA Recalls, Market Withdrawals, & Safety Alerts",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts",
    "first_seen": "2026-10-27T18:54:09Z",
-   "retrieved": "2026-11-06T19:25:48Z",
+   "retrieved": "2026-11-07T21:51:39Z",
    "status": "confirmed",
    "photos": [
     {
@@ -209,7 +209,7 @@
    "source": "FDA Recalls, Market Withdrawals, & Safety Alerts",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts",
    "first_seen": "2026-10-27T18:54:09Z",
-   "retrieved": "2026-11-06T19:25:50Z",
+   "retrieved": "2026-11-07T21:51:41Z",
    "status": "confirmed",
    "photos": [
     {
@@ -11368,7 +11368,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-11-07T13:01:43Z",
+   "retrieved": "2026-11-07T21:51:45Z",
    "status": "confirmed"
   },
   {
@@ -11381,7 +11381,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-11-07T13:01:45Z",
+   "retrieved": "2026-11-07T21:51:48Z",
    "status": "confirmed"
   },
   {
@@ -11394,7 +11394,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-11-07T13:01:47Z",
+   "retrieved": "2026-11-07T21:51:50Z",
    "status": "confirmed"
   },
   {
@@ -11407,7 +11407,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-11-07T13:01:49Z",
+   "retrieved": "2026-11-07T21:51:52Z",
    "status": "confirmed"
   },
   {
@@ -11420,7 +11420,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-11-07T13:01:51Z",
+   "retrieved": "2026-11-07T21:51:54Z",
    "status": "confirmed"
   },
   {
@@ -11433,7 +11433,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-11-07T13:01:53Z",
+   "retrieved": "2026-11-07T21:51:56Z",
    "status": "confirmed"
   },
   {
@@ -11446,7 +11446,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-11-07T13:01:55Z",
+   "retrieved": "2026-11-07T21:51:59Z",
    "status": "confirmed"
   },
   {
@@ -11459,7 +11459,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-11-07T13:01:57Z",
+   "retrieved": "2026-11-07T21:52:01Z",
    "status": "confirmed"
   },
   {
@@ -11472,7 +11472,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-11-07T13:01:59Z",
+   "retrieved": "2026-11-07T21:52:03Z",
    "status": "confirmed"
   },
   {
@@ -11485,7 +11485,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-11-07T13:02:01Z",
+   "retrieved": "2026-11-07T21:52:05Z",
    "status": "confirmed"
   },
   {
@@ -11498,7 +11498,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-11-07T13:02:03Z",
+   "retrieved": "2026-11-07T21:52:07Z",
    "status": "confirmed"
   },
   {
@@ -11511,7 +11511,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-11-07T13:02:06Z",
+   "retrieved": "2026-11-07T21:52:09Z",
    "status": "confirmed"
   },
   {
@@ -11524,7 +11524,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-11-07T13:02:08Z",
+   "retrieved": "2026-11-07T21:52:11Z",
    "status": "confirmed"
   }
  ]
