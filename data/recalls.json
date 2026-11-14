@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-13T06:47:23Z",
+ "generated": "2026-11-14T06:24:55Z",
  "sources": [
   {
    "name": "FDA Recalls, Market Withdrawals, & Safety Alerts",
@@ -12,6 +12,67 @@
  ],
  "note": "Collected from FDA.gov every few hours. Not every recall is posted on FDA.gov (USDA FSIS handles most meat, poultry and egg recalls). Always confirm at FDA.gov.",
  "recalls": [
+  {
+   "id": "medline-updates-customers-and-patients-repair-and-replace-program-recall-medline-brand-beds-rails",
+   "url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/medline-updates-customers-and-patients-repair-and-replace-program-recall-medline-brand-beds-rails",
+   "fda_publish_date": "2026-11-13",
+   "brands": "Medline",
+   "product": "Beds, Rails, Mattresses, and accessories",
+   "types": [
+    "Medical Devices"
+   ],
+   "reason": "Potential Fire Hazard and Entrapment Risk",
+   "company": "Medline",
+   "terminated": false,
+   "source": "FDA Recalls, Market Withdrawals, & Safety Alerts",
+   "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts",
+   "first_seen": "2026-11-14T06:23:38Z",
+   "retrieved": "2026-11-14T06:23:42Z",
+   "status": "confirmed",
+   "photos": [],
+   "company_announcement_date": "2026-11-13"
+  },
+  {
+   "id": "bioquad-life-sciences-issues-allergy-alert-undeclared-milk-osteodenxr-dietary-supplement",
+   "url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/bioquad-life-sciences-issues-allergy-alert-undeclared-milk-osteodenxr-dietary-supplement",
+   "fda_publish_date": "2026-11-13",
+   "brands": "OsteoDenx",
+   "product": "OsteoDenx capsules",
+   "types": [
+    "Dietary Supplements"
+   ],
+   "reason": "Contain undeclared milk.",
+   "company": "bioQuad Life Sciences",
+   "terminated": false,
+   "source": "FDA Recalls, Market Withdrawals, & Safety Alerts",
+   "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts",
+   "first_seen": "2026-11-14T06:23:38Z",
+   "retrieved": "2026-11-14T06:23:44Z",
+   "status": "confirmed",
+   "photos": [
+    {
+     "src": "https://www.fda.gov/files/image_1_263.png",
+     "thumb": "https://www.fda.gov/files/styles/recall_image_small/public/image_1_263.png?itok=aZsDXmlE",
+     "alt": "OsteoDenx front label, 30 capsules"
+    },
+    {
+     "src": "https://www.fda.gov/files/image_2_205.png",
+     "thumb": "https://www.fda.gov/files/styles/recall_image_small/public/image_2_205.png?itok=WC1TWd8i",
+     "alt": "OsteoDenx front label, 60 capsules"
+    },
+    {
+     "src": "https://www.fda.gov/files/image_3_112.png",
+     "thumb": "https://www.fda.gov/files/styles/recall_image_small/public/image_3_112.png?itok=noI3Jiii",
+     "alt": "Image of side panel of OsteoDenx Lot#0524100 EXP: 05/2027"
+    },
+    {
+     "src": "https://www.fda.gov/files/image_4_90.png",
+     "thumb": "https://www.fda.gov/files/styles/recall_image_small/public/image_4_90.png?itok=q5kizq3A",
+     "alt": "image of side panel of OsteoDenx Lot#0625041 EXP: 08/2028"
+    }
+   ],
+   "company_announcement_date": "2026-11-13"
+  },
   {
    "id": "eros-apothecary-issues-recall-candy-power-man-organic-honey-due-undeclared-tadalafil",
    "url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/eros-apothecary-issues-recall-candy-power-man-organic-honey-due-undeclared-tadalafil",
@@ -27,7 +88,7 @@
    "source": "FDA Recalls, Market Withdrawals, & Safety Alerts",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts",
    "first_seen": "2026-11-12T19:54:49Z",
-   "retrieved": "2026-11-12T19:54:54Z",
+   "retrieved": "2026-11-14T06:23:46Z",
    "status": "confirmed",
    "photos": [
     {
@@ -59,7 +120,7 @@
    "source": "FDA Recalls, Market Withdrawals, & Safety Alerts",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts",
    "first_seen": "2026-11-12T19:54:49Z",
-   "retrieved": "2026-11-12T19:54:56Z",
+   "retrieved": "2026-11-14T06:23:48Z",
    "status": "confirmed",
    "photos": [
     {
@@ -90,7 +151,7 @@
    "source": "FDA Recalls, Market Withdrawals, & Safety Alerts",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts",
    "first_seen": "2026-11-11T06:20:56Z",
-   "retrieved": "2026-11-13T06:46:25Z",
+   "retrieved": "2026-11-14T06:23:50Z",
    "status": "confirmed",
    "photos": [
     {
@@ -122,7 +183,7 @@
    "source": "FDA Recalls, Market Withdrawals, & Safety Alerts",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts",
    "first_seen": "2026-11-11T06:20:56Z",
-   "retrieved": "2026-11-13T06:46:27Z",
+   "retrieved": "2026-11-14T06:23:52Z",
    "status": "confirmed",
    "photos": [],
    "company_announcement_date": "2026-11-10"
@@ -142,7 +203,7 @@
    "source": "FDA Recalls, Market Withdrawals, & Safety Alerts",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts",
    "first_seen": "2026-11-09T22:21:56Z",
-   "retrieved": "2026-11-12T19:54:58Z",
+   "retrieved": "2026-11-14T06:23:54Z",
    "status": "confirmed",
    "photos": [
     {
@@ -168,7 +229,7 @@
    "source": "FDA Recalls, Market Withdrawals, & Safety Alerts",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts",
    "first_seen": "2026-11-09T22:21:56Z",
-   "retrieved": "2026-11-12T19:55:00Z",
+   "retrieved": "2026-11-14T06:23:56Z",
    "status": "confirmed",
    "photos": [
     {
@@ -199,7 +260,7 @@
    "source": "FDA Recalls, Market Withdrawals, & Safety Alerts",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts",
    "first_seen": "2026-11-03T19:03:55Z",
-   "retrieved": "2026-11-12T19:55:02Z",
+   "retrieved": "2026-11-14T06:23:58Z",
    "status": "confirmed",
    "photos": [
     {
@@ -240,7 +301,7 @@
    "source": "FDA Recalls, Market Withdrawals, & Safety Alerts",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts",
    "first_seen": "2026-11-03T01:14:58Z",
-   "retrieved": "2026-11-13T06:46:29Z",
+   "retrieved": "2026-11-14T06:24:01Z",
    "status": "confirmed",
    "photos": [
     {
@@ -293,7 +354,7 @@
    "source": "FDA Recalls, Market Withdrawals, & Safety Alerts",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts",
    "first_seen": "2026-10-30T18:57:17Z",
-   "retrieved": "2026-11-12T19:55:04Z",
+   "retrieved": "2026-11-14T06:24:03Z",
    "status": "confirmed",
    "photos": [
     {
@@ -327,7 +388,7 @@
    "source": "FDA Recalls, Market Withdrawals, & Safety Alerts",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts",
    "first_seen": "2026-10-30T01:10:37Z",
-   "retrieved": "2026-11-13T06:46:31Z",
+   "retrieved": "2026-11-14T06:24:06Z",
    "status": "confirmed",
    "photos": [
     {
@@ -354,7 +415,7 @@
    "source": "FDA Recalls, Market Withdrawals, & Safety Alerts",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts",
    "first_seen": "2026-10-27T18:54:09Z",
-   "retrieved": "2026-11-12T19:55:06Z",
+   "retrieved": "2026-11-14T06:24:08Z",
    "status": "confirmed",
    "photos": [
     {
@@ -381,7 +442,7 @@
    "source": "FDA Recalls, Market Withdrawals, & Safety Alerts",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts",
    "first_seen": "2026-10-27T18:54:09Z",
-   "retrieved": "2026-11-12T19:55:08Z",
+   "retrieved": "2026-11-14T06:24:10Z",
    "status": "confirmed",
    "photos": [
     {
@@ -412,7 +473,7 @@
    "source": "FDA Recalls, Market Withdrawals, & Safety Alerts",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts",
    "first_seen": "2026-10-25T00:51:45Z",
-   "retrieved": "2026-11-13T06:46:33Z",
+   "retrieved": "2026-11-14T06:24:12Z",
    "status": "confirmed",
    "photos": [
     {
@@ -444,7 +505,7 @@
    "source": "FDA Recalls, Market Withdrawals, & Safety Alerts",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts",
    "first_seen": "2026-10-23T00:58:41Z",
-   "retrieved": "2026-11-13T06:46:36Z",
+   "retrieved": "2026-11-14T06:24:14Z",
    "status": "confirmed",
    "photos": [
     {
@@ -475,7 +536,7 @@
    "source": "FDA Recalls, Market Withdrawals, & Safety Alerts",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts",
    "first_seen": "2026-10-23T00:58:41Z",
-   "retrieved": "2026-11-13T06:46:38Z",
+   "retrieved": "2026-11-14T06:24:16Z",
    "status": "confirmed",
    "photos": [
     {
@@ -502,7 +563,7 @@
    "source": "FDA Recalls, Market Withdrawals, & Safety Alerts",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts",
    "first_seen": "2026-10-22T02:42:10Z",
-   "retrieved": "2026-11-13T06:46:40Z",
+   "retrieved": "2026-11-14T06:24:18Z",
    "status": "confirmed",
    "photos": [],
    "company_announcement_date": "2026-10-21"
@@ -523,7 +584,7 @@
    "source": "FDA Recalls, Market Withdrawals, & Safety Alerts",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts",
    "first_seen": "2026-10-18T00:54:31Z",
-   "retrieved": "2026-11-13T06:46:42Z",
+   "retrieved": "2026-11-14T06:24:20Z",
    "status": "confirmed",
    "photos": [
     {
@@ -555,7 +616,7 @@
    "source": "FDA Recalls, Market Withdrawals, & Safety Alerts",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts",
    "first_seen": "2026-10-17T00:54:11Z",
-   "retrieved": "2026-11-13T06:46:44Z",
+   "retrieved": "2026-11-14T06:24:22Z",
    "status": "confirmed",
    "photos": [
     {
@@ -587,7 +648,7 @@
    "source": "FDA Recalls, Market Withdrawals, & Safety Alerts",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts",
    "first_seen": "2026-10-16T00:52:24Z",
-   "retrieved": "2026-11-13T06:46:46Z",
+   "retrieved": "2026-11-14T06:24:24Z",
    "status": "confirmed",
    "photos": [
     {
@@ -11259,48 +11320,6 @@
     }
    ],
    "company_announcement_date": "2025-11-14"
-  },
-  {
-   "id": "food-live-voluntarily-recalls-organic-moringa-products-because-possible-health-risk",
-   "url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/food-live-voluntarily-recalls-organic-moringa-products-because-possible-health-risk",
-   "fda_publish_date": "2025-11-13",
-   "brands": "Food To Live",
-   "product": "Organic Supergreens Powder Mix and Organic Moringa Leaf Powder",
-   "types": [
-    "Food & Beverages",
-    "Foodborne Illness"
-   ],
-   "reason": "Potential to be contaminated with Salmonella",
-   "company": "Food To Live",
-   "terminated": true,
-   "source": "FDA Recalls, Market Withdrawals, & Safety Alerts",
-   "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts",
-   "first_seen": "2026-10-06T06:01:01Z",
-   "retrieved": "2026-10-06T06:40:34Z",
-   "status": "confirmed",
-   "photos": [
-    {
-     "src": "https://www.fda.gov/files/image_1_138.png",
-     "thumb": "https://www.fda.gov/files/styles/recall_image_small/public/image_1_138.png?itok=24MyfQhv",
-     "alt": "Food to Live Organic Supergreens Powder Mix in package (Front view)"
-    },
-    {
-     "src": "https://www.fda.gov/files/image_2_104.png",
-     "thumb": "https://www.fda.gov/files/styles/recall_image_small/public/image_2_104.png?itok=CXXS9w3m",
-     "alt": "Food to Live Organic Supergreens Powder Mix in package (back label)"
-    },
-    {
-     "src": "https://www.fda.gov/files/image_3_66.png",
-     "thumb": "https://www.fda.gov/files/styles/recall_image_small/public/image_3_66.png?itok=E0Bh_EjJ",
-     "alt": "Food to Live Organic Moringa Leaf Powder in package (front view)"
-    },
-    {
-     "src": "https://www.fda.gov/files/image_4_52.png",
-     "thumb": "https://www.fda.gov/files/styles/recall_image_small/public/image_4_52.png?itok=V5Hb9NYS",
-     "alt": "Food to Live Organic Moringa Leaf Powder in package (back label)"
-    }
-   ],
-   "company_announcement_date": "2025-11-12"
   }
  ],
  "major": [
@@ -11314,7 +11333,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-11-13T06:46:57Z",
+   "retrieved": "2026-11-14T06:24:29Z",
    "status": "confirmed"
   },
   {
@@ -11327,7 +11346,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-11-13T06:46:59Z",
+   "retrieved": "2026-11-14T06:24:31Z",
    "status": "confirmed"
   },
   {
@@ -11340,7 +11359,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-11-13T06:47:01Z",
+   "retrieved": "2026-11-14T06:24:33Z",
    "status": "confirmed"
   },
   {
@@ -11353,7 +11372,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-11-13T06:47:03Z",
+   "retrieved": "2026-11-14T06:24:35Z",
    "status": "confirmed"
   },
   {
@@ -11366,7 +11385,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-11-13T06:47:05Z",
+   "retrieved": "2026-11-14T06:24:37Z",
    "status": "confirmed"
   },
   {
@@ -11379,7 +11398,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-11-13T06:47:08Z",
+   "retrieved": "2026-11-14T06:24:40Z",
    "status": "confirmed"
   },
   {
@@ -11392,7 +11411,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-11-13T06:47:10Z",
+   "retrieved": "2026-11-14T06:24:42Z",
    "status": "confirmed"
   },
   {
@@ -11405,7 +11424,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-11-13T06:47:12Z",
+   "retrieved": "2026-11-14T06:24:44Z",
    "status": "confirmed"
   },
   {
@@ -11418,7 +11437,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-11-13T06:47:14Z",
+   "retrieved": "2026-11-14T06:24:46Z",
    "status": "confirmed"
   },
   {
@@ -11431,7 +11450,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-11-13T06:47:17Z",
+   "retrieved": "2026-11-14T06:24:48Z",
    "status": "confirmed"
   },
   {
@@ -11444,7 +11463,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-11-13T06:47:19Z",
+   "retrieved": "2026-11-14T06:24:50Z",
    "status": "confirmed"
   },
   {
@@ -11457,7 +11476,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-11-13T06:47:21Z",
+   "retrieved": "2026-11-14T06:24:53Z",
    "status": "confirmed"
   },
   {
@@ -11470,7 +11489,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-11-13T06:47:23Z",
+   "retrieved": "2026-11-14T06:24:55Z",
    "status": "confirmed"
   }
  ]
