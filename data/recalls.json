@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-17T07:56:21Z",
+ "generated": "2026-11-17T20:56:56Z",
  "sources": [
   {
    "name": "FDA Recalls, Market Withdrawals, & Safety Alerts",
@@ -12,6 +12,75 @@
  ],
  "note": "Collected from FDA.gov every few hours. Not every recall is posted on FDA.gov (USDA FSIS handles most meat, poultry and egg recalls). Always confirm at FDA.gov.",
  "recalls": [
+  {
+   "id": "aldi-recalls-priano-protein-carbonara-tortelloni-and-priano-protein-herb-cheese-tortelloni-because",
+   "url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/aldi-recalls-priano-protein-carbonara-tortelloni-and-priano-protein-herb-cheese-tortelloni-because",
+   "fda_publish_date": "2026-11-17",
+   "brands": "Priano",
+   "product": "Protein Carbonara Tortelloni and Protein Herb & Cheese Tortelloni",
+   "types": [
+    "Food & Beverages",
+    "Foodborne Illness"
+   ],
+   "reason": "Potential to be contaminated with Clostridium botulinum",
+   "company": "ALDI",
+   "terminated": false,
+   "source": "FDA Recalls, Market Withdrawals, & Safety Alerts",
+   "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts",
+   "first_seen": "2026-11-17T20:55:40Z",
+   "retrieved": "2026-11-17T20:56:07Z",
+   "status": "confirmed",
+   "photos": [
+    {
+     "src": "https://www.fda.gov/files/image_1_265.png",
+     "thumb": "https://www.fda.gov/files/styles/recall_image_small/public/image_1_265.png?itok=yfb-UGj3",
+     "alt": "Priano Protein Carbonara Tortelloni, Net Wt. 9 oz, Best if used by 12/18/2026"
+    },
+    {
+     "src": "https://www.fda.gov/files/image_2_207.png",
+     "thumb": "https://www.fda.gov/files/styles/recall_image_small/public/image_2_207.png?itok=XkVrPiiS",
+     "alt": "Priano Protein Herb & Cheese Tortelloni, Net Wt. 9 oz, Best if used by 12/18/2026"
+    }
+   ],
+   "company_announcement_date": "2026-11-16"
+  },
+  {
+   "id": "naia-inc-recalls-chocolate-banana-bar-sorbetto-because-undeclared-milk-eggs-and-nuts",
+   "url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/naia-inc-recalls-chocolate-banana-bar-sorbetto-because-undeclared-milk-eggs-and-nuts",
+   "fda_publish_date": "2026-11-17",
+   "brands": "Naia",
+   "product": "Chocolate Banana Bar Sorbetto",
+   "types": [
+    "Food & Beverages",
+    "Allergens"
+   ],
+   "reason": "Undeclared Allergen – milk, eggs, tree nut (pistachio)",
+   "company": "Naia, Inc.",
+   "terminated": false,
+   "source": "FDA Recalls, Market Withdrawals, & Safety Alerts",
+   "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts",
+   "first_seen": "2026-11-17T20:55:40Z",
+   "retrieved": "2026-11-17T20:56:10Z",
+   "status": "confirmed",
+   "photos": [
+    {
+     "src": "https://www.fda.gov/files/image_1_264.png",
+     "thumb": "https://www.fda.gov/files/styles/recall_image_small/public/image_1_264.png?itok=iuO-YL_q",
+     "alt": "INCORRECT LABELS:  (Frozen novelty is creamy beige in color)"
+    },
+    {
+     "src": "https://www.fda.gov/files/image_2_206.png",
+     "thumb": "https://www.fda.gov/files/styles/recall_image_small/public/image_2_206.png?itok=PRAAoTvc",
+     "alt": "CORRECT LABELS:  (Frozen novelty is dark chocolate brown in color)"
+    },
+    {
+     "src": "https://www.fda.gov/files/image_3_122.jpg",
+     "thumb": "https://www.fda.gov/files/styles/recall_image_small/public/image_3_122.jpg?itok=jT02DGzG",
+     "alt": "CLOSE UP OF LABEL:"
+    }
+   ],
+   "company_announcement_date": "2026-11-16"
+  },
   {
    "id": "medline-updates-customers-and-patients-repair-and-replace-program-recall-medline-brand-beds-rails",
    "url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/medline-updates-customers-and-patients-repair-and-replace-program-recall-medline-brand-beds-rails",
@@ -2480,7 +2549,7 @@
    "brands": "American Regent, Inc.",
    "product": "Epinephrine Injection, USP 30 mg/ 30 mL (1 mg/mL) multi dose vial",
    "types": [
-    "Food & Beverages"
+    "Drugs"
    ],
    "reason": "Presence of particulate matter and lack of sterility assurance",
    "company": "American Regent, Inc.",
@@ -11298,7 +11367,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-11-17T07:55:56Z",
+   "retrieved": "2026-11-17T20:56:14Z",
    "status": "confirmed"
   },
   {
@@ -11311,7 +11380,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-11-17T07:55:58Z",
+   "retrieved": "2026-11-17T20:56:16Z",
    "status": "confirmed"
   },
   {
@@ -11324,7 +11393,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-11-17T07:56:00Z",
+   "retrieved": "2026-11-17T20:56:24Z",
    "status": "confirmed"
   },
   {
@@ -11337,7 +11406,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-11-17T07:56:02Z",
+   "retrieved": "2026-11-17T20:56:26Z",
    "status": "confirmed"
   },
   {
@@ -11350,7 +11419,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-11-17T07:56:04Z",
+   "retrieved": "2026-11-17T20:56:28Z",
    "status": "confirmed"
   },
   {
@@ -11363,7 +11432,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-11-17T07:56:07Z",
+   "retrieved": "2026-11-17T20:56:30Z",
    "status": "confirmed"
   },
   {
@@ -11376,7 +11445,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-11-17T07:56:09Z",
+   "retrieved": "2026-11-17T20:56:33Z",
    "status": "confirmed"
   },
   {
@@ -11389,7 +11458,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-11-17T07:56:11Z",
+   "retrieved": "2026-11-17T20:56:37Z",
    "status": "confirmed"
   },
   {
@@ -11402,7 +11471,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-11-17T07:56:13Z",
+   "retrieved": "2026-11-17T20:56:39Z",
    "status": "confirmed"
   },
   {
@@ -11415,7 +11484,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-11-17T07:56:15Z",
+   "retrieved": "2026-11-17T20:56:41Z",
    "status": "confirmed"
   },
   {
@@ -11428,7 +11497,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-11-17T07:56:17Z",
+   "retrieved": "2026-11-17T20:56:43Z",
    "status": "confirmed"
   },
   {
@@ -11441,7 +11510,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-11-17T07:56:19Z",
+   "retrieved": "2026-11-17T20:56:54Z",
    "status": "confirmed"
   },
   {
@@ -11454,7 +11523,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-11-17T07:56:21Z",
+   "retrieved": "2026-11-17T20:56:56Z",
    "status": "confirmed"
   }
  ]
