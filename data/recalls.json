@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-20T07:17:24Z",
+ "generated": "2026-11-20T20:22:28Z",
  "sources": [
   {
    "name": "FDA Recalls, Market Withdrawals, & Safety Alerts",
@@ -12,6 +12,135 @@
  ],
  "note": "Collected from FDA.gov every few hours. Not every recall is posted on FDA.gov (USDA FSIS handles most meat, poultry and egg recalls). Always confirm at FDA.gov.",
  "recalls": [
+  {
+   "id": "breckenridge-pharmaceutical-inc-issues-voluntary-nationwide-consumer-level-recall-one-lot",
+   "url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/breckenridge-pharmaceutical-inc-issues-voluntary-nationwide-consumer-level-recall-one-lot",
+   "fda_publish_date": "2026-11-20",
+   "brands": "Breckenridge",
+   "product": "Propranolol Hydrochloride Extended-Release Capsules, USP, 60mg",
+   "types": [
+    "Drugs"
+   ],
+   "reason": "Due to potential metal contamination",
+   "company": "Breckenridge Pharmaceutical, Inc.",
+   "terminated": false,
+   "source": "FDA Recalls, Market Withdrawals, & Safety Alerts",
+   "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts",
+   "first_seen": "2026-11-20T20:20:45Z",
+   "retrieved": "2026-11-20T20:21:29Z",
+   "status": "confirmed",
+   "photos": [
+    {
+     "src": "https://www.fda.gov/files/image_1_270.png",
+     "thumb": "https://www.fda.gov/files/styles/recall_image_small/public/image_1_270.png?itok=5Kt9jMeP",
+     "alt": "Propranolol Hydrochloride Extended-Release Capsules, USP, 60mg"
+    },
+    {
+     "src": "https://www.fda.gov/files/image_2_209.png",
+     "thumb": "https://www.fda.gov/files/styles/recall_image_small/public/image_2_209.png?itok=A1KuW7AW",
+     "alt": "Product Label for Propranolol Hydrochloride Extended-Release Capsules, USP 60 mg"
+    }
+   ],
+   "company_announcement_date": "2026-11-16"
+  },
+  {
+   "id": "shanghai-san-niu-food-co-ltd-recalling-sanniu-evergeen-biscuits-due-undeclared-milk-and-sanniu-salt",
+   "url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/shanghai-san-niu-food-co-ltd-recalling-sanniu-evergeen-biscuits-due-undeclared-milk-and-sanniu-salt",
+   "fda_publish_date": "2026-11-20",
+   "brands": "Sanniu",
+   "product": "Sanniu Evergreen Biscuits and Sanniu Salt and Pepper Soda Biscuits",
+   "types": [
+    "Food & Beverages",
+    "Allergens"
+   ],
+   "reason": "Undeclared Milk and Shrimp",
+   "company": "Shanghai San Niu Food Co., Ltd",
+   "terminated": false,
+   "source": "FDA Recalls, Market Withdrawals, & Safety Alerts",
+   "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts",
+   "first_seen": "2026-11-20T20:20:45Z",
+   "retrieved": "2026-11-20T20:21:31Z",
+   "status": "confirmed",
+   "photos": [
+    {
+     "src": "https://www.fda.gov/files/image_1_269.png",
+     "thumb": "https://www.fda.gov/files/styles/recall_image_small/public/image_1_269.png?itok=gIUnCKYh",
+     "alt": "Back label, Sanniu Salt and Pepper Soda Biscuits, UPC 6926664705713"
+    },
+    {
+     "src": "https://www.fda.gov/files/image_2_238.jpg",
+     "thumb": "https://www.fda.gov/files/styles/recall_image_small/public/image_2_238.jpg?itok=KYq-h0o5",
+     "alt": "Front label, Sanniu Salt and Pepper Soda Biscuits, UPC 6926664705713"
+    },
+    {
+     "src": "https://www.fda.gov/files/image_3_113.png",
+     "thumb": "https://www.fda.gov/files/styles/recall_image_small/public/image_3_113.png?itok=vZPtwBaw",
+     "alt": "Front label, Sanniu Evergreen Biscuits, 14 oz, UPC 6926664703467"
+    },
+    {
+     "src": "https://www.fda.gov/files/image_4_91.png",
+     "thumb": "https://www.fda.gov/files/styles/recall_image_small/public/image_4_91.png?itok=AL4qigSP",
+     "alt": "Close up of lot code 07292027, Sanniu Evergreen Biscuits, 14 oz, UPC 6926664703467"
+    },
+    {
+     "src": "https://www.fda.gov/files/image_5_52.jpg",
+     "thumb": "https://www.fda.gov/files/styles/recall_image_small/public/image_5_52.jpg?itok=4WgxyjUn",
+     "alt": "Back label, Sanniu Evergreen Biscuits, 14 oz, UPC 6926664703467"
+    },
+    {
+     "src": "https://www.fda.gov/files/image_6_43.jpg",
+     "thumb": "https://www.fda.gov/files/styles/recall_image_small/public/image_6_43.jpg?itok=OCEpF5mx",
+     "alt": "Front label, Sanniu Evergreen Biscuits, 40 oz UPC 6926664700435"
+    },
+    {
+     "src": "https://www.fda.gov/files/image_7_28.png",
+     "thumb": "https://www.fda.gov/files/styles/recall_image_small/public/image_7_28.png?itok=LYDvBQQT",
+     "alt": "Back label, Sanniu Evergreen Biscuits, 40 oz UPC 6926664700435"
+    },
+    {
+     "src": "https://www.fda.gov/files/image_8_27.png",
+     "thumb": "https://www.fda.gov/files/styles/recall_image_small/public/image_8_27.png?itok=OaBK3J4w",
+     "alt": "Close up of lot code 06202027, Sanniu Evergreen Biscuits, 40 oz UPC 6926664700435"
+    },
+    {
+     "src": "https://www.fda.gov/files/image_9_21.jpg",
+     "thumb": "https://www.fda.gov/files/styles/recall_image_small/public/image_9_21.jpg?itok=640p2rBd",
+     "alt": "Front label, Sanniu Evergreen Biscuits, UPC 6926664706048"
+    },
+    {
+     "src": "https://www.fda.gov/files/image_10_18.jpg",
+     "thumb": "https://www.fda.gov/files/styles/recall_image_small/public/image_10_18.jpg?itok=jK_jps7v",
+     "alt": "Back label, Sanniu Evergreen Biscuits, UPC 6926664706048"
+    }
+   ],
+   "company_announcement_date": "2026-11-20"
+  },
+  {
+   "id": "ridley-block-operations-recalls-batch-crystalyxrhe-20-beef-cattle-and-bison-due-excess-levels-non",
+   "url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/ridley-block-operations-recalls-batch-crystalyxrhe-20-beef-cattle-and-bison-due-excess-levels-non",
+   "fda_publish_date": "2026-11-20",
+   "brands": "Crystalyx",
+   "product": "Crystalyx HE-20%",
+   "types": [
+    "Animal & Veterinary"
+   ],
+   "reason": "Levels of non-protein nitrogen (NPN) from urea that are high enough to cause adverse health effects in cattle, including death.",
+   "company": "Ridley Block Operations",
+   "terminated": false,
+   "source": "FDA Recalls, Market Withdrawals, & Safety Alerts",
+   "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts",
+   "first_seen": "2026-11-20T20:20:45Z",
+   "retrieved": "2026-11-20T20:21:33Z",
+   "status": "confirmed",
+   "photos": [
+    {
+     "src": "https://www.fda.gov/files/image_1_268.png",
+     "thumb": "https://www.fda.gov/files/styles/recall_image_small/public/image_1_268.png?itok=iIqAdHND",
+     "alt": "Crystalyx HE-20% For Beef Cattle and Bison on Pasture Ingredient Net Weight: 200lb Batch #RBO00112695"
+    }
+   ],
+   "company_announcement_date": "2026-11-19"
+  },
   {
    "id": "medical-device-correction-update-lunar-g3-bpap-system-model-lg3800-30vt",
    "url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/medical-device-correction-update-lunar-g3-bpap-system-model-lg3800-30vt",
@@ -11435,7 +11564,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-11-20T07:17:00Z",
+   "retrieved": "2026-11-20T20:21:38Z",
    "status": "confirmed"
   },
   {
@@ -11448,7 +11577,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-11-20T07:17:03Z",
+   "retrieved": "2026-11-20T20:21:40Z",
    "status": "confirmed"
   },
   {
@@ -11461,7 +11590,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-11-20T07:17:05Z",
+   "retrieved": "2026-11-20T20:21:58Z",
    "status": "confirmed"
   },
   {
@@ -11474,7 +11603,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-11-20T07:17:07Z",
+   "retrieved": "2026-11-20T20:22:00Z",
    "status": "confirmed"
   },
   {
@@ -11487,7 +11616,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-11-20T07:17:09Z",
+   "retrieved": "2026-11-20T20:22:02Z",
    "status": "confirmed"
   },
   {
@@ -11500,7 +11629,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-11-20T07:17:11Z",
+   "retrieved": "2026-11-20T20:22:05Z",
    "status": "confirmed"
   },
   {
@@ -11513,7 +11642,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-11-20T07:17:13Z",
+   "retrieved": "2026-11-20T20:22:07Z",
    "status": "confirmed"
   },
   {
@@ -11526,7 +11655,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-11-20T07:17:15Z",
+   "retrieved": "2026-11-20T20:22:09Z",
    "status": "confirmed"
   },
   {
@@ -11539,7 +11668,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-11-20T07:17:17Z",
+   "retrieved": "2026-11-20T20:22:19Z",
    "status": "confirmed"
   },
   {
@@ -11552,7 +11681,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-11-20T07:17:19Z",
+   "retrieved": "2026-11-20T20:22:22Z",
    "status": "confirmed"
   },
   {
@@ -11565,7 +11694,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-11-20T07:17:22Z",
+   "retrieved": "2026-11-20T20:22:24Z",
    "status": "confirmed"
   },
   {
@@ -11578,7 +11707,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-11-20T07:17:22Z",
+   "retrieved": "2026-11-20T20:22:26Z",
    "status": "confirmed"
   },
   {
@@ -11591,7 +11720,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-11-20T07:17:24Z",
+   "retrieved": "2026-11-20T20:22:28Z",
    "status": "confirmed"
   }
  ]
