@@ -1,12 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <!-- Placeholder icon until a logo is chosen -->
+  <!-- Recall alert: a warning triangle in the site's dark navy and red (see css/tokens.css) -->
   <rect width="64" height="64" rx="14" fill="#0a1226"/>
-  <path d="M32 11 L50.2 21.5 L50.2 42.5 L32 53 L13.8 42.5 L13.8 21.5 Z" fill="none" stroke="#7fe6ff" stroke-opacity=".55" stroke-width="2"/>
-  <circle cx="32" cy="32" r="6" fill="#4f7dff"/>
-  <circle cx="32" cy="11" r="6" fill="#ffb340"/>
-  <circle cx="50.2" cy="21.5" r="6" fill="#ff6961"/>
-  <circle cx="50.2" cy="42.5" r="6" fill="#c77dff"/>
-  <circle cx="32" cy="53" r="6" fill="#40e0d0"/>
-  <circle cx="13.8" cy="42.5" r="6" fill="#ff6b8b"/>
-  <circle cx="13.8" cy="21.5" r="6" fill="#4da3ff"/>
+  <path d="M32 12 L54 50 H10 Z" fill="#ff6b6b" stroke="#ff6b6b" stroke-width="6" stroke-linejoin="round"/>
+  <rect x="29" y="25" width="6" height="14" rx="3" fill="#0a1226"/>
+  <circle cx="32" cy="45" r="3.4" fill="#0a1226"/>
 </svg>
