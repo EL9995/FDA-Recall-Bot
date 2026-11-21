@@ -32,7 +32,7 @@
   const state = {
     range: ['day', 'week', 'month'].includes(params.get('range')) ? params.get('range') : store.get('range', 'week'),
     end: /^\d{4}-\d{2}-\d{2}$/.test(params.get('end') || '') ? params.get('end') : today,
-    // null means every category. A link's ?cats= (e.g. from the LINE bot) wins over the saved picks.
+    // null means every category. A link's ?cats= (e.g. from the Telegram bot) wins over the saved picks.
     cats: params.has('cats') ? params.get('cats').split(',').filter(Boolean) : store.get('cats', null),
     // A search (?q=, e.g. from the Telegram bot) shows every match from the past year, in every category.
     q: (params.get('q') || '').trim(),
