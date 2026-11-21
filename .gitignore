@@ -1,2 +1,3 @@
+# Files git should not track: macOS folder metadata and local Claude Code settings.
 .DS_Store
 .claude/
