@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-24T09:55:49Z",
+ "generated": "2026-11-24T22:27:54Z",
  "sources": [
   {
    "name": "FDA Recalls, Market Withdrawals, & Safety Alerts",
@@ -12,6 +12,93 @@
  ],
  "note": "Collected from FDA.gov every few hours. Not every recall is posted on FDA.gov (USDA FSIS handles most meat, poultry and egg recalls). Always confirm at FDA.gov.",
  "recalls": [
+  {
+   "id": "par-health-issues-voluntary-nationwide-recall-certain-lots-six-injectable-drug-products-due-presence",
+   "url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/par-health-issues-voluntary-nationwide-recall-certain-lots-six-injectable-drug-products-due-presence",
+   "fda_publish_date": "2026-11-24",
+   "brands": "Par Pharmaceutical and Endo USA",
+   "product": "Injectable Drug Products",
+   "types": [
+    "Drugs"
+   ],
+   "reason": "Due to the presence of particulate matter, identified as cellulose, polystyrene, stopper material, and aluminum.",
+   "company": "Par Health",
+   "terminated": false,
+   "source": "FDA Recalls, Market Withdrawals, & Safety Alerts",
+   "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts",
+   "first_seen": "2026-11-24T22:26:47Z",
+   "retrieved": "2026-11-24T22:27:17Z",
+   "status": "confirmed",
+   "photos": [
+    {
+     "src": "https://www.fda.gov/files/image_1_272.png",
+     "thumb": "https://www.fda.gov/files/styles/recall_image_small/public/image_1_272.png?itok=79Le-2lV",
+     "alt": "Product Label for Brevital Sodium, 500 mg Multiple Dose Vial"
+    },
+    {
+     "src": "https://www.fda.gov/files/image_2_211.png",
+     "thumb": "https://www.fda.gov/files/styles/recall_image_small/public/image_2_211.png?itok=UejQOPdr",
+     "alt": "Product Label for Coly-Mycin M Parenteral, 150 mg/vial"
+    },
+    {
+     "src": "https://www.fda.gov/files/image_3_115.png",
+     "thumb": "https://www.fda.gov/files/styles/recall_image_small/public/image_3_115.png?itok=xJrB_cJ-",
+     "alt": "Product Label for Dantrium Intravenous, 20 mg/vial"
+    },
+    {
+     "src": "https://www.fda.gov/files/image_4_93.png",
+     "thumb": "https://www.fda.gov/files/styles/recall_image_small/public/image_4_93.png?itok=I7K8udb0",
+     "alt": "Product Label for Doxycycline for Injection, USP 100 mg per vial"
+    },
+    {
+     "src": "https://www.fda.gov/files/image_5_53.png",
+     "thumb": "https://www.fda.gov/files/styles/recall_image_small/public/image_5_53.png?itok=0Z1Rw28q",
+     "alt": "Product Label for Ethacrynate Sodium For Injection, USP 50mg/vial"
+    },
+    {
+     "src": "https://www.fda.gov/files/image_6_41.png",
+     "thumb": "https://www.fda.gov/files/styles/recall_image_small/public/image_6_41.png?itok=1fEbdXa3",
+     "alt": "Product Label for Micafungin for Injection, 50 mg/vial"
+    },
+    {
+     "src": "https://www.fda.gov/files/image_7_29.png",
+     "thumb": "https://www.fda.gov/files/styles/recall_image_small/public/image_7_29.png?itok=O20ettil",
+     "alt": "Product Label for Micafungin for Injection, 100 mg/vial"
+    }
+   ],
+   "company_announcement_date": "2026-11-23"
+  },
+  {
+   "id": "golden-state-medical-supply-inc-issues-voluntary-nationwide-recall-ibuprofen-800mg-tablets-due",
+   "url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/golden-state-medical-supply-inc-issues-voluntary-nationwide-recall-ibuprofen-800mg-tablets-due",
+   "fda_publish_date": "2026-11-24",
+   "brands": "GSMS",
+   "product": "Ibuprofen 800 mg Tablets",
+   "types": [
+    "Drugs"
+   ],
+   "reason": "Potential contamination with aluminum particulate.",
+   "company": "Golden State Medical Supply, Inc.",
+   "terminated": false,
+   "source": "FDA Recalls, Market Withdrawals, & Safety Alerts",
+   "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts",
+   "first_seen": "2026-11-24T22:26:47Z",
+   "retrieved": "2026-11-24T22:27:19Z",
+   "status": "confirmed",
+   "photos": [
+    {
+     "src": "https://www.fda.gov/files/image_1_273.png",
+     "thumb": "https://www.fda.gov/files/styles/recall_image_small/public/image_1_273.png?itok=j3bjGQfy",
+     "alt": "Product Label for Ibuprofen Tablets, USP 800 mg, 500 Tablets"
+    },
+    {
+     "src": "https://www.fda.gov/files/image_2_212.png",
+     "thumb": "https://www.fda.gov/files/styles/recall_image_small/public/image_2_212.png?itok=dhZkEaB0",
+     "alt": "(front side and back side) Ibuprofen Tablets 800 mg"
+    }
+   ],
+   "company_announcement_date": "2026-11-23"
+  },
   {
    "id": "prime-food-processing-llc-issues-safety-warning-regarding-uneviscerated-dried-herring-fish-0",
    "url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/prime-food-processing-llc-issues-safety-warning-regarding-uneviscerated-dried-herring-fish-0",
@@ -121,7 +208,7 @@
    "source": "FDA Recalls, Market Withdrawals, & Safety Alerts",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts",
    "first_seen": "2026-11-20T20:20:45Z",
-   "retrieved": "2026-11-23T23:54:03Z",
+   "retrieved": "2026-11-24T22:27:21Z",
    "status": "confirmed",
    "photos": [
     {
@@ -153,7 +240,7 @@
    "source": "FDA Recalls, Market Withdrawals, & Safety Alerts",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts",
    "first_seen": "2026-11-20T20:20:45Z",
-   "retrieved": "2026-11-23T23:54:05Z",
+   "retrieved": "2026-11-24T22:27:23Z",
    "status": "confirmed",
    "photos": [
     {
@@ -224,7 +311,7 @@
    "source": "FDA Recalls, Market Withdrawals, & Safety Alerts",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts",
    "first_seen": "2026-11-20T20:20:45Z",
-   "retrieved": "2026-11-23T23:54:08Z",
+   "retrieved": "2026-11-24T22:27:25Z",
    "status": "confirmed",
    "photos": [
     {
@@ -11626,7 +11713,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-11-24T09:55:22Z",
+   "retrieved": "2026-11-24T22:27:29Z",
    "status": "confirmed"
   },
   {
@@ -11639,7 +11726,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-11-24T09:55:24Z",
+   "retrieved": "2026-11-24T22:27:32Z",
    "status": "confirmed"
   },
   {
@@ -11652,7 +11739,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-11-24T09:55:26Z",
+   "retrieved": "2026-11-24T22:27:34Z",
    "status": "confirmed"
   },
   {
@@ -11665,7 +11752,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-11-24T09:55:28Z",
+   "retrieved": "2026-11-24T22:27:36Z",
    "status": "confirmed"
   },
   {
@@ -11678,7 +11765,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-11-24T09:55:30Z",
+   "retrieved": "2026-11-24T22:27:38Z",
    "status": "confirmed"
   },
   {
@@ -11691,7 +11778,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-11-24T09:55:32Z",
+   "retrieved": "2026-11-24T22:27:40Z",
    "status": "confirmed"
   },
   {
@@ -11704,7 +11791,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-11-24T09:55:34Z",
+   "retrieved": "2026-11-24T22:27:42Z",
    "status": "confirmed"
   },
   {
@@ -11717,7 +11804,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-11-24T09:55:37Z",
+   "retrieved": "2026-11-24T22:27:44Z",
    "status": "confirmed"
   },
   {
@@ -11730,7 +11817,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-11-24T09:55:39Z",
+   "retrieved": "2026-11-24T22:27:46Z",
    "status": "confirmed"
   },
   {
@@ -11743,7 +11830,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-11-24T09:55:41Z",
+   "retrieved": "2026-11-24T22:27:48Z",
    "status": "confirmed"
   },
   {
@@ -11756,7 +11843,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-11-24T09:55:43Z",
+   "retrieved": "2026-11-24T22:27:50Z",
    "status": "confirmed"
   },
   {
@@ -11769,7 +11856,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-11-24T09:55:47Z",
+   "retrieved": "2026-11-24T22:27:52Z",
    "status": "confirmed"
   },
   {
@@ -11782,7 +11869,7 @@
    "updated_seen": null,
    "source": "FDA Major Product Recalls",
    "source_url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/major-product-recalls",
-   "retrieved": "2026-11-24T09:55:49Z",
+   "retrieved": "2026-11-24T22:27:54Z",
    "status": "confirmed"
   }
  ]
